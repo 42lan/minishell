@@ -50,3 +50,13 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Folders
+.DS_Store/
+objects/
+
+# Tag files
+tags
+
+# Silly rename files
+.nfs.*
