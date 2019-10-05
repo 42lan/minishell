@@ -1,3 +1,7 @@
+# Swp files
+*.swp
+*.swo
+
 # Prerequisites
 *.d
 
