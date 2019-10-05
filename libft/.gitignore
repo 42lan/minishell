@@ -1,0 +1,26 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+
+# Executable
+*.out
+
+# Debug files
+*.dSYM
+
+# Swp files
+*.swp
+*.swo
+
+# Precompiled header
+*.h.gch
+
+# Folders
+.DS_Store/
+.vscode/
+objects/
+
+# Tag files
+tags
