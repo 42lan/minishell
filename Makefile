@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/10/05 11:39:44 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/09 17:20:57 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,9 @@ INCDIR		= ./includes
 # **************************************************************************** #
 # List of source files
 
-SRCNAME		= main.c
+SRCNAME		= main.c	\
+			  display_prompt.c\
+			  tools/clear_console.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
