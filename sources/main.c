@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/09 18:26:14 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/16 13:23:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ int		main(int argc, char *argv[], char *envp[])
 
 	if (argc > 1)
 		command = argv[1];
-	clear_console();
+	//clear_console();
 	while (1)
 	{
 		display_prompt(envp);
-		sleep(10);
+		command = get_input();
+		//parse_input(command);
+		ft_printf("%s", command);
 		ft_printf("\n");
 	}
+	ft_printf("minishell terminated\n");
 	return (0);
 }
