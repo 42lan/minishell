@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/09/28 11:40:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/16 13:19:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "ft_printf.h"
 
 typedef struct		s_list
 {
