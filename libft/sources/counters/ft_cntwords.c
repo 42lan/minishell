@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:18:21 by amalsago          #+#    #+#             */
-/*   Updated: 2019/03/31 16:56:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:49:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Computes and returns the number of words in a given string s separated by c.
+*/
 
 int			ft_cntwords(char const *s, char c)
 {

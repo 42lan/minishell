@@ -6,11 +6,15 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:37:11 by amalsago          #+#    #+#             */
-/*   Updated: 2018/11/22 21:15:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 10:32:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Perfoms decimal-digit character test.
+*/
 
 int		ft_isdigit(int c)
 {
