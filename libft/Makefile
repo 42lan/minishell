@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/09/28 11:40:01 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/20 12:00:48 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  conversions/ft_toupper.c				\
 			  conversions/ft_uitoa_base.c			\
 			  conversions/ft_uitoa_base_static.c	\
-			  counters/ft_cntwords.c	\
+			  counters/ft_count_words.c	\
 			  counters/ft_silen.c		\
 			  counters/ft_uilen.c		\
 			  errors/ft_print_error.c			\

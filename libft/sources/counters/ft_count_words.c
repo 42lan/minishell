@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cntwords.c                                      :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:18:21 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/20 10:49:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 12:00:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Computes and returns the number of words in a given string s separated by c.
 */
 
-int			ft_cntwords(char const *s, char c)
+int			ft_count_words(char const *s, char c)
 {
 	int		i;
 	int		words;

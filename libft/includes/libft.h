@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/16 13:19:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 11:58:20 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void				ft_qsort(char **array, int left, int right);
 ** STRING
 */
 
-int					ft_cntwords(char const *s, char c);
+int					ft_count_words(char const *s, char c);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
 int					ft_strchr_index(char *s, char c);

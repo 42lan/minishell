@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 08:02:34 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/19 19:26:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/20 11:58:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char				**ft_strsplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	nofword = 0;
-	words = ft_cntwords(s, c);
+	words = ft_count_words(s, c);
 	if (!(tab = ft_strnew2d(words)))
 		return (NULL);
 	while (*s != '\0')
