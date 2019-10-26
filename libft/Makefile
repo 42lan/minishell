@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/10/20 12:00:48 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/26 18:35:07 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,7 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  string/ft_strclr.c		\
 			  string/ft_strcmp.c		\
 			  string/ft_strcpy.c		\
+			  string/ft_strcspn.c		\
 			  string/ft_strdel.c		\
 			  string/ft_strdup.c		\
 			  string/ft_strequ.c		\
@@ -124,8 +125,10 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  string/ft_strnstr.c		\
 			  string/ft_strrchr.c		\
 			  string/ft_strsplit.c		\
+			  string/ft_strspn.c		\
 			  string/ft_strstr.c		\
 			  string/ft_strsub.c		\
+			  string/ft_strtok.c		\
 			  string/ft_strtrim.c		\
 			  utilities/ft_printf/ft_printf.c				\
 			  utilities/ft_printf/parsing.c					\
