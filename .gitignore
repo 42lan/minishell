@@ -1,3 +1,6 @@
+# History list file
+.minishell_history
+
 # Swp files
 *.swp
 *.swo
