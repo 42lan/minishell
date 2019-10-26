@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/10/20 16:54:11 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/26 19:23:33 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRCNAME		= main.c\
 			  get_input.c\
 			  history.c\
 			  parse_input.c\
-			  tools/clear_console.c
+			  tools/clear_console.c\
+			  ft_getenv.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
