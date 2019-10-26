@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/20 16:54:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/26 19:23:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 # include "../libft/includes/ft_printf.h"
 # include "../libft/includes/get_next_line.h"
 
-void		display_prompt(char *envp[]);
+void		display_prompt(void);
 void		clear_console(void);
 char		*get_input(void);
 void		parse_input(const char *line);
 void		write_history(const char *line);
+char		*ft_getenv(const char *name);
 
 #endif
