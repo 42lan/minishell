@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/10/26 19:23:33 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/27 11:35:10 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,13 +45,16 @@ INCDIR		= ./includes
 # **************************************************************************** #
 # List of source files
 
-SRCNAME		= main.c\
-			  display_prompt.c\
+SRCNAME		= display_prompt.c\
+			  execute_command.c\
+			  ft_getenv.c\
 			  get_input.c\
 			  history.c\
+			  main.c\
 			  parse_input.c\
 			  tools/clear_console.c\
-			  ft_getenv.c
+			  tools/ft_arraydel.c\
+			  tools/print_commands.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
