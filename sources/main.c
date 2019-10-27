@@ -6,20 +6,18 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/27 13:42:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/27 18:43:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int				main(int argc, char *argv[])
+int				main(void)
 {
 	int			i;
 	char		*line;
 	char		**commands;
 
-	if (argc > 1)
-		line = argv[1];
 	//clear_console();
 	while (1)
 	{
@@ -35,7 +33,5 @@ int				main(int argc, char *argv[])
 		ft_strdel(&line);
 	}
 	ft_printf("minishell terminated\n");
-	(void)argc;
-	(void)argv;
 	return (0);
 }
