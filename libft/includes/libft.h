@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/27 13:21:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/28 11:38:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ size_t				ft_uilen(uintmax_t number, int base);
 ** ERRORS
 */
 
-void				ft_print_error(const char *error);
-void				ft_print_error_and_exit(const char *error);
+void				ft_perror(const char *s);
+void				ft_perror_exit(const char *s);
 
 /*
 ** LISTS
