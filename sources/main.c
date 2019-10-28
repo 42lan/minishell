@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/28 11:18:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/28 17:14:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				main(void)
 		if (*line)
 		{
 			write_history(line);
-			commands = parse_input(line); // What if parse_input() returns NULL?
+			commands = parse_input(line);
 			while (commands[++i])
 				execute_command(commands[i]); // What if execute_command() returns <= 0?
 			ft_arraydel(commands);
