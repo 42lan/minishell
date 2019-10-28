@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/27 18:43:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/28 11:18:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ int				main(void)
 		display_prompt();
 		line = get_input();
 		if (*line)
+		{
 			write_history(line);
-		commands = parse_input(line);
-		while (commands[++i])
-			execute_command(commands[i]);
-		ft_arraydel(commands);
+			commands = parse_input(line); // What if parse_input() returns NULL?
+			while (commands[++i])
+				execute_command(commands[i]); // What if execute_command() returns <= 0?
+			ft_arraydel(commands);
+		}
 		ft_strdel(&line);
 	}
-	ft_printf("minishell terminated\n");
+	ft_printf("minishell terminated correctly\n");
 	return (0);
 }
