@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/27 15:56:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/29 19:58:58 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void		print_commands(char **commands);
 void		ft_arraydel(char **array);
 int			execute_command(const char *command);
 char		*find_executable(const char *executable);
-
+int			check_access(const char *realpath);
 
 #endif
