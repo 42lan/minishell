@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:33:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/28 17:15:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/29 20:01:35 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,11 @@ static void		child_handler(const char *command)
 	if ((argv = ft_strsplit(command, ' ')) == NULL)
 		ft_perror_exit("ft_strsplit() failed in child_handler()");
 	realpath = find_executable(argv[0]);
-	if (access(realpath, X_OK) != 0)
-	{
-		ft_perror("minishell: permission denied: ");
-		ft_perror_exit(realpath);
-	}
-	if ((execve(realpath, argv, NULL)) < 0)
-		ft_perror_exit("execute_command(): execve() failed");
+	if (check_access(realpath))
+		if ((execve(realpath, argv, NULL)) < 0)
+			ft_perror_exit("execute_command(): execve() failed");
+	ft_arraydel(argv);
+	ft_strdel(&realpath);
 }
 
 int			execute_command(const char *command)
