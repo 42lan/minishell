@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:55:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/28 16:50:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/10/29 17:24:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char		*find_executable(const char *executable)
 			if (access(realpath, F_OK) == 0)
 				break ;
 			directory = ft_strtok(NULL, ":");
+			ft_strdel(&realpath);
 		}
 		if (!realpath)
 			realpath = ft_strdup(executable);
