@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/10/27 16:00:54 by amalsago         ###   ########.fr        #
+#    Updated: 2019/10/29 19:34:30 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ INCDIR		= ./includes
 
 SRCNAME		= display_prompt.c\
 			  execute_command.c\
+			  check_access.c\
 			  ft_getenv.c\
 			  find_executable.c\
 			  get_input.c\
