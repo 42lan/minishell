@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 16:26:49 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/04 19:27:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void		clear_console(void);
 char		*get_input(void);
 char		**parse_input(const char *line);
 void		write_history(const char *line);
-char		*ft_getenv(const char *name);
 void		print_commands(char **commands);
 void		ft_arraydel(char **array);
 
