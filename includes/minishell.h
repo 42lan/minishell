@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/29 19:58:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/04 10:53:32 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,7 @@ int			execute_command(const char *command);
 char		*find_executable(const char *executable);
 int			check_access(const char *realpath);
 
+void		print_eacces(const char *filename);
+void		print_enoent(const char *filename);
+void		print_enofound(const char *filename);
 #endif
