@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/04 10:49:58 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/04 14:32:13 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,14 +45,19 @@ INCDIR		= ./includes
 # **************************************************************************** #
 # List of source files
 
-SRCNAME		= display_prompt.c\
+SRCNAME		= builtins/builtin_exit.c\
+			  builtins/builtin_env.c\
+			  display_prompt.c\
 			  errors.c\
+			  execute.c\
+			  execute_builtin.c\
 			  execute_command.c\
 			  check_access.c\
 			  ft_getenv.c\
 			  find_executable.c\
 			  get_input.c\
 			  history.c\
+			  is_builtin.c\
 			  main.c\
 			  parse_input.c\
 			  tools/clear_console.c\
