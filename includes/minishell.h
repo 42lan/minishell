@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 14:31:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:26:49 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ char		*ft_getenv(const char *name);
 void		print_commands(char **commands);
 void		ft_arraydel(char **array);
 
-int			execute(const char *command);
-void		execute_builtin(const char *command);
+int			execute(const char *line);
+void		execute_builtin(const char *command, const char *line);
 int			execute_command(char **command);
 char		*find_executable(const char *executable);
 int			check_access(const char *realpath);
+int			is_builtin(const char *command);
 
 void		print_eacces(const char *filename);
 void		print_enoent(const char *filename);
