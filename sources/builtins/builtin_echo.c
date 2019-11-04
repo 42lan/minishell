@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:50:41 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 16:23:14 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/04 19:01:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ void			builtin_echo(const char *line)
 {
 	char		*args;
 	char		*token;
+	int			last_char;
 
 	args = ft_strtrim(line + 4);
 	if (args[0] == '"')
 	{
-		args[ft_strlen(args) - 1] = '\0';
+		last_char = ft_strlen(args);
+		if (args[last_char - 1] == '"')
+			args[last_char - 1] = '\0';
 		ft_printf("%s\n", args + 1);
 	}
 	else
