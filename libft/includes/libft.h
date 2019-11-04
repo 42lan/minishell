@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/28 11:38:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/04 19:27:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ void				ft_qsort(char **array, int left, int right);
 ** STRING
 */
 
+char				*ft_getenv(const char *name);
 char				*ft_realpath(const char *dirname, char const *basename);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
