@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/10/29 19:34:30 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/04 10:49:58 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ INCDIR		= ./includes
 # List of source files
 
 SRCNAME		= display_prompt.c\
+			  errors.c\
 			  execute_command.c\
 			  check_access.c\
 			  ft_getenv.c\
