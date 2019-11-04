@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/04 18:36:21 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/04 19:27:32 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,6 @@ SRCNAME		= builtins/builtin_echo.c\
 			  execute_builtin.c\
 			  execute_command.c\
 			  check_access.c\
-			  ft_getenv.c\
 			  find_executable.c\
 			  get_input.c\
 			  history.c\
