@@ -6,13 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 10:53:32 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/04 14:31:19 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include "builtins.h"
 # include "system_libraries.h"
 # include "../libft/includes/libft.h"
 # include "../libft/includes/ft_printf.h"
@@ -26,7 +27,10 @@ void		write_history(const char *line);
 char		*ft_getenv(const char *name);
 void		print_commands(char **commands);
 void		ft_arraydel(char **array);
-int			execute_command(const char *command);
+
+int			execute(const char *command);
+void		execute_builtin(const char *command);
+int			execute_command(char **command);
 char		*find_executable(const char *executable);
 int			check_access(const char *realpath);
 
