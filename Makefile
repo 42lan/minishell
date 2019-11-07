@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/04 19:27:32 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/07 16:25:39 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Wall -Wextra -Werror
+WOPT		= -Wall -Wextra -Werror -g -g3
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
@@ -54,6 +54,7 @@ SRCNAME		= builtins/builtin_echo.c\
 			  execute.c\
 			  execute_builtin.c\
 			  execute_command.c\
+			  expansion.c\
 			  check_access.c\
 			  find_executable.c\
 			  get_input.c\
