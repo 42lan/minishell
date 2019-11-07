@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 19:27:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/07 16:25:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,6 @@ int			is_builtin(const char *command);
 void		print_eacces(const char *filename);
 void		print_enoent(const char *filename);
 void		print_enofound(const char *filename);
+
+void			expand_symbols(char **command);
 #endif
