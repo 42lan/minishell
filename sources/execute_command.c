@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:33:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 19:14:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/07 14:26:19 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ int				execute_command(char **command)
 	{
 		print_enofound(command[0]);
 		ft_arraydel(command);
-		return (-1);
+		exit(EXIT_FAILURE);
 	}
 	if (check_access(realpath))
 		if ((execve(realpath, command, environ)) < 0)
 			ft_perror("minishell: execve() failed in child_handler()");
-	exit(EXIT_FAILURE);
 	ft_strdel(&realpath);
-	return (1);
+	exit(EXIT_FAILURE);
 }
