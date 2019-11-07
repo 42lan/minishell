@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 16:16:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/07 16:40:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int				main(void)
 			write_history(line);
 			commands = parse_input(line);
 			while (commands[++i])
+			{
+				expand_symbols(&commands[i]);
 				execute(commands[i]); // What if execute_command() returns <= 0?
+			}
 			ft_arraydel(commands);
 		}
 		ft_strdel(&line);
