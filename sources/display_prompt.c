@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 14:42:32 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/26 19:30:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/06 10:54:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	display_prompt(void)
+void		display_prompt(void)
 {
 	char	*user;
 
