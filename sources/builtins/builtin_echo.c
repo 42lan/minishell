@@ -6,13 +6,21 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:50:41 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/06 11:13:34 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/08 21:02:15 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		builtin_echo(const char *line)
+/*
+** DESCRIPTION
+**	builtin_echo()
+**
+** RETURN VALUES
+**	Upon successful completion, the value 1 is returned otherwise the value 0.
+*/
+
+int			builtin_echo(const char *line)
 {
 	char	*args;
 	char	*token;
@@ -37,5 +45,5 @@ void		builtin_echo(const char *line)
 		}
 	}
 	ft_strdel(&args);
-	exit(EXIT_SUCCESS);
+	return (1);
 }
