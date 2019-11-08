@@ -6,11 +6,21 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 17:25:08 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 10:49:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/08 20:52:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	check_access() function performs the accessibility of the file named by the
+** 	realpath. Firstly it performs existence test (F_OK), then execute/search
+** 	permission test (X_OK).
+**
+** RETURN VALUES
+**	Upon successful completion, the value 1 is returned otherwise the value 0.
+*/
 
 int			check_access(const char *realpath)
 {
