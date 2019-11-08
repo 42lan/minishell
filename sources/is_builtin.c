@@ -6,11 +6,20 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:08:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 12:26:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/08 20:58:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	is_builtin() function checks if specified command is one of the supported
+**	builtins.
+**
+** RETURN VALUES
+**	Upon successful completion, the value 1 is returned otherwise the value 0.
+*/
 
 int			is_builtin(const char *command)
 {
