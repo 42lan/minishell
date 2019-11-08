@@ -6,11 +6,19 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 13:29:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/02 19:01:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/08 20:56:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	get_input()
+**
+** RETURN VALUES
+**	Upon successful completion, users entry is returned otherwise NULL.
+*/
 
 char		*get_input(void)
 {
