@@ -6,15 +6,27 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/06 16:33:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/08 21:14:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/*
+** DESCRIPTION
+**	builtin_setenv()
+**	ft_setenv()
+**
+** RETURN VALUES
+**	builtin_setenv()
+**		Upon successful completion, the value 1 is returned otherwise the value 0.
+**	ft_setenv()
+**		Upon successful completion, the value 1 is returned otherwise the value 0.
+*/
+
 extern char		**environ;
 
-static int		total_rows(void)
+static int		total_rows(char **environ)
 {
 	int			rows;
 
@@ -32,44 +44,33 @@ int				ft_setenv(const char *name, const char *value, int rewrite)
 	char		*to_add;
 
 	i = -1;
-	new_environ = ft_strnew2d(total_rows() + 1); // +1 for new var and NULL
+	ft_printf("[%s][%s][%d]\n", name, value, rewrite);
+	if (!(new_environ = ft_strnew2d(total_rows(environ) + 1))) // +1 for new var; strnew2d make +1 inside - use it for NULL the last element
+		return (0);
 	while (environ[++i])
 		new_environ[i] = ft_strdup(environ[i]);
 	length = ft_strlen(name) + ft_strlen(value);
 	to_add = ft_strnew(length);
-	(void)rewrite;
 	ft_strcpy(to_add, name);
 	ft_strcat(to_add, "=");
 	ft_strcat(to_add, value);
 	new_environ[i] = to_add;
 	new_environ[i + 1] = NULL;
 	environ = new_environ;
-	i = -1;
-	while (environ[++i])
-		ft_printf(">>>%s\n", environ[i]);
 	return (1);
 }
 
-void			builtin_setenv(const char *line)
+int			builtin_setenv(const char *line)
 {
 	int			rewrite = 1;
 	char		*name;
 	char		*value;
-	char		*new_env_var;
+	char		*trimmed;
 
-	new_env_var = ft_strtrim(line + 6);
-
-	name = ft_strtok(new_env_var, "=");
-	value = name + ft_strlen(name) + 1; //value = ft_strtok(NULL, "=");
-	ft_printf("|%s|\n", new_env_var);
-	ft_printf("[%s]=[%s]\n", name, value);
-	
-	ft_setenv(name, value, rewrite);
-
-
-	/*
-	ft_arraydel(environ)
-	environ = new_environ;
-	*/
-	exit(EXIT_SUCCESS); // To terminate child process
+	trimmed = ft_strtrim(line + 6);
+	name = ft_strtok(trimmed, " \t");
+	value = ft_strtok(NULL, " \t");
+	if (ft_setenv(name, value, rewrite) != 1)
+		return (0);
+	return (1);
 }
