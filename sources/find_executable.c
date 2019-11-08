@@ -6,11 +6,23 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:55:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 10:55:44 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/08 20:55:29 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	find_executable()
+**	get_realpath()
+**
+** RETURN VALUES
+**	find_executable()
+**		Upon successful completion, the realpath is returned otherwise NULL.
+**	get_realpath()
+**		Upon successful completion, the realpath is returned otherwise NULL.
+*/
 
 static char		*get_realpath(const char *executable)
 {
