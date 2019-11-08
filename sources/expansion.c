@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/07 19:01:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/07 20:03:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static void		expand_dollar(char **command)
 	while ((*command)[++i])
 		if ((*command)[i] == '$')
 		{
-			value = ft_getenv(&(*command)[i] + 1);
+			if ((value = ft_getenv(&(*command)[i] + 1)) == NULL)
+				return ;
 			newstr = ft_strnew(i + ft_strlen(value));
 			newstr = ft_strncpy(newstr, *command, i);
 			newstr = ft_strcat(newstr, value);
