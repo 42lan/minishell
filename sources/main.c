@@ -6,11 +6,19 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/08 10:07:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/08 21:20:13 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	main()
+**
+** RETURN VALUES
+**	Upon successful completion, the value 0 is returned.
+*/
 
 void			sigint_handler(void)
 {
