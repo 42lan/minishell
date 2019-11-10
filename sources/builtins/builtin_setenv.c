@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/08 21:14:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/10 14:44:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int		total_rows(char **environ)
 	return (rows);
 }
 
-int				ft_setenv(const char *name, const char *value, int rewrite)
+int				ft_setenv(const char *name, const char *value)
 {
 	int			i;
 	int			length;
@@ -44,33 +44,41 @@ int				ft_setenv(const char *name, const char *value, int rewrite)
 	char		*to_add;
 
 	i = -1;
-	ft_printf("[%s][%s][%d]\n", name, value, rewrite);
-	if (!(new_environ = ft_strnew2d(total_rows(environ) + 1))) // +1 for new var; strnew2d make +1 inside - use it for NULL the last element
+	if (!(new_environ = ft_strnew2d(total_rows(environ) + 1)))
 		return (0);
 	while (environ[++i])
 		new_environ[i] = ft_strdup(environ[i]);
-	length = ft_strlen(name) + ft_strlen(value);
-	to_add = ft_strnew(length);
+	length = (value) ? ft_strlen(name) + ft_strlen(value) : ft_strlen(name);
+	to_add = ft_strnew(length + 1);
 	ft_strcpy(to_add, name);
 	ft_strcat(to_add, "=");
-	ft_strcat(to_add, value);
+	if (value)
+		ft_strcat(to_add, value);
 	new_environ[i] = to_add;
 	new_environ[i + 1] = NULL;
 	environ = new_environ;
 	return (1);
 }
 
-int			builtin_setenv(const char *line)
+int				builtin_setenv(const char *line)
 {
-	int			rewrite = 1;
 	char		*name;
 	char		*value;
 	char		*trimmed;
 
 	trimmed = ft_strtrim(line + 6);
-	name = ft_strtok(trimmed, " \t");
-	value = ft_strtok(NULL, " \t");
-	if (ft_setenv(name, value, rewrite) != 1)
-		return (0);
+	if (!*trimmed)
+		builtin_env();
+	else
+	{
+		name = ft_strtok(trimmed, " \t");
+		value = ft_strtok(NULL, " \t");
+		if (ft_setenv(name, value) != 1)
+		{
+			ft_strdel(&trimmed);
+			return (0);
+		}
+	}
+	ft_strdel(&trimmed);
 	return (1);
 }
