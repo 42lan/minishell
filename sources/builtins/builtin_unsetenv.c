@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 12:07:18 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/10 14:40:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/11 13:46:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ int				ft_unsetenv(const char *name)
 
 	i = -1;
 	if (!name || !*name)
+	{
+		ft_perror("unsetenv: Too few arguments.");
 		return (0);
+	}
 	while (environ[++i])
-		if (ft_strequ(environ[i], name))
+		if (ft_strnequ(environ[i], name, ft_strlen(name)))
 			break ;
-	free(environ[i]);
-	environ[i] = NULL;
-	//ft_strdel(&environ[i]);
+	ft_strdel(&environ[i]);
 	return (1);
 }
 
