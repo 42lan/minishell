@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/08 21:01:56 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/11 11:46:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int				builtin_cd(const char *line)
 		path = form_path(cwd, path);
 	if (chdir(path) < 0)
 	{
-		return (0);
 		print_enoent(path);
+		return (0);
 	}
 	// builtin_setenv(OLDPWD, cwd, 1);
 	// builtin_setenv(PWD, cwd, 1);
