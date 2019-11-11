@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/10 14:44:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/11 13:51:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 ** DESCRIPTION
 **	builtin_setenv()
 **	ft_setenv()
+**		Adding 1 to length for '=' between key and value.
+**		to_add = ft_strnew(length + 1);
 **
 ** RETURN VALUES
 **	builtin_setenv()
@@ -44,6 +46,11 @@ int				ft_setenv(const char *name, const char *value)
 	char		*to_add;
 
 	i = -1;
+	if (!ft_isalpha(name[0]))
+	{
+		ft_perror("setenv: Variable name must begin with a letter.");
+		return (0);
+	}
 	if (!(new_environ = ft_strnew2d(total_rows(environ) + 1)))
 		return (0);
 	while (environ[++i])
