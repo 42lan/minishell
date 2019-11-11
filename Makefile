@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/10 12:31:51 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/11 14:49:48 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ INCDIR		= ./includes
 # **************************************************************************** #
 # List of source files
 
-SRCNAME		= builtins/builtin_cd.c\
+SRCNAME		= builtins/builtin_builtins.c\
+			  builtins/builtin_cd.c\
 			  builtins/builtin_echo.c\
 			  builtins/builtin_env.c\
 			  builtins/builtin_exit.c\
