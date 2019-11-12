@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/11 13:51:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/12 18:49:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,6 @@
 
 extern char		**environ;
 
-static int		total_rows(char **environ)
-{
-	int			rows;
-
-	rows = 0;
-	while (environ[rows])
-		rows++;
-	return (rows);
-}
 
 int				ft_setenv(const char *name, const char *value)
 {
@@ -51,10 +42,15 @@ int				ft_setenv(const char *name, const char *value)
 		ft_perror("setenv: Variable name must begin with a letter.");
 		return (0);
 	}
-	if (!(new_environ = ft_strnew2d(total_rows(environ) + 1)))
-		return (0);
-	while (environ[++i])
-		new_environ[i] = ft_strdup(environ[i]);
+	while (name[++i])
+	{
+		if (!ft_isalnum(name[i]))
+		{
+			ft_perror("setenv: Variable name must contain alphanumeric characters.");
+			return (-1);
+		}
+	}
+	new_environ = duplicate_environ();
 	length = (value) ? ft_strlen(name) + ft_strlen(value) : ft_strlen(name);
 	to_add = ft_strnew(length + 1);
 	ft_strcpy(to_add, name);
