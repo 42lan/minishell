@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/11 18:33:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/12 18:41:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,22 @@
 **	Upon successful completion, the value 0 is returned.
 */
 
-void		sigint_handler(void)
+extern char		**environ;
+
+void			sigint_handler(void)
 {
 	ft_putchar('\n');
 	display_prompt();
 }
 
-int			main(void)
+int				main(void)
 {
-	int		i;
-	char	*line;
-	char	**commands;
+	int			i;
+	char		*line;
+	char		**commands;
 
 	//clear_console();
+	environ = duplicate_environ();
 	signal(SIGINT, (void*)sigint_handler);
 	while (1)
 	{
