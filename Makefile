@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/11 14:49:48 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/12 18:37:34 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCNAME		= builtins/builtin_builtins.c\
 			  builtins/builtin_setenv.c\
 			  builtins/builtin_unsetenv.c\
 			  display_prompt.c\
+			  duplicate_environ.c\
 			  errors.c\
 			  execute.c\
 			  execute_builtin.c\
