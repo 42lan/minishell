@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:49:17 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/09 18:49:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/13 12:54:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <signal.h>
 # include <stdlib.h>
+# include <sys/ioctl.h>
 # include <sys/stat.h>
 # include <sys/wait.h>
 # include <unistd.h>
