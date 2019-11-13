@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/12 18:49:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/13 15:58:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,31 @@
 **
 ** RETURN VALUES
 **	builtin_setenv()
-**		Upon successful completion, the value 1 is returned otherwise the value 0.
+**		Upon successful completion, the value 1 is returned otherwise 0.
 **	ft_setenv()
-**		Upon successful completion, the value 1 is returned otherwise the value 0.
+**		Upon successful completion, the value 1 is returned otherwise 0.
 */
 
 extern char		**environ;
 
+int				no_exceptions(const char *name)
+{
+	int			i;
+
+	i = -1;
+	if (!ft_isalpha(name[0]))
+	{
+		ft_perror("setenv: Variable name must begin with a letter.");
+		return (0);
+	}
+	while (name[++i])
+		if (!ft_isalnum(name[i]))
+		{
+			ft_perror("setenv: Variable name must contain alphanumeric characters.");
+			return (0);
+		}
+	return (1);
+}
 
 int				ft_setenv(const char *name, const char *value)
 {
@@ -37,26 +55,17 @@ int				ft_setenv(const char *name, const char *value)
 	char		*to_add;
 
 	i = -1;
-	if (!ft_isalpha(name[0]))
-	{
-		ft_perror("setenv: Variable name must begin with a letter.");
+	if (!no_exceptions(name))
 		return (0);
-	}
-	while (name[++i])
-	{
-		if (!ft_isalnum(name[i]))
-		{
-			ft_perror("setenv: Variable name must contain alphanumeric characters.");
-			return (-1);
-		}
-	}
-	new_environ = duplicate_environ();
+	if (!(new_environ = ft_strnew2d(total_rows(environ) + 1)))
+		ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
+	while (environ[++i])
+		new_environ[i] = ft_strdup(environ[i]);
 	length = (value) ? ft_strlen(name) + ft_strlen(value) : ft_strlen(name);
 	to_add = ft_strnew(length + 1);
 	ft_strcpy(to_add, name);
 	ft_strcat(to_add, "=");
-	if (value)
-		ft_strcat(to_add, value);
+	ft_strcat(to_add, (value) ? value : "");
 	new_environ[i] = to_add;
 	new_environ[i + 1] = NULL;
 	environ = new_environ;
