@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/12 18:39:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/13 15:48:43 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 extern char		**environ;
 
-static int		total_rows(char **environ)
+int				total_rows()
 {
-	int			rows;
+	int			i;
 
-	rows = 0;
-	while (environ[rows])
-		rows++;
-	return (rows);
+	i = 0;
+	while (environ[i])
+		i++;
+	return (i);
 }
 
 char			**duplicate_environ(void)
@@ -30,7 +30,7 @@ char			**duplicate_environ(void)
 	char		**new_environ;
 
 	i = -1;
-	if (!(new_environ = ft_strnew2d(total_rows(environ) + 1)))
+	if (!(new_environ = ft_strnew2d(total_rows() + 1)))
 		return (NULL);
 	while (environ[++i])
 		new_environ[i] = ft_strdup(environ[i]);
