@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/12 18:37:34 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/14 15:50:59 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ SRCNAME		= builtins/builtin_builtins.c\
 			  builtins/builtin_env.c\
 			  builtins/builtin_exit.c\
 			  builtins/builtin_setenv.c\
-			  builtins/builtin_unsetenv.c\
+			  check_access.c\
 			  display_prompt.c\
 			  duplicate_environ.c\
 			  errors.c\
@@ -59,8 +59,9 @@ SRCNAME		= builtins/builtin_builtins.c\
 			  execute_builtin.c\
 			  execute_command.c\
 			  expansion.c\
-			  check_access.c\
 			  find_executable.c\
+			  ft_setenv.c\
+			  ft_unsetenv.c\
 			  get_input.c\
 			  history.c\
 			  is_builtin.c\
