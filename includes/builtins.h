@@ -6,14 +6,14 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:10:52 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/12 18:32:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/14 13:55:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUILTINS_H
 # define BUILTINS_H
 
-int				ft_setenv(const char *name, const char *value);
+int				ft_setenv(const char *name, const char *value, int overwrite);
 int				ft_unsetenv(const char *name);
 
 int				builtin_builtins(const char *args);
