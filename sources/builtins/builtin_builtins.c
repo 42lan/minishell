@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 14:40:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/13 12:49:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/14 16:02:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int					builtin_builtins(const char *args)
 
 	i = -1;
 	max_name_len = get_max_len();
-	per_row = get_per_row(max_name_len);
+	per_row = get_per_row(max_name_len + 5);
 	if (check_many_arguments(args))
 	{
 		ft_perror("builtins: Too many arguments.");
@@ -76,7 +76,7 @@ int					builtin_builtins(const char *args)
 	}
 	while (g_builtins[++i])
 	{
-		if (i == per_row - 1)
+		if (i == per_row)
 			ft_putchar('\n');
 		width = max_name_len + 5;
 		ft_printf("%-*s", width, g_builtins[i]);
