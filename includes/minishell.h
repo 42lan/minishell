@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/13 14:47:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/14 14:27:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	print_commands(char **commands);
 void	ft_arraydel(char **array);
 
 char	**duplicate_environ(void);
-int		total_rows();
+int		total_environ_rows(void);
 #endif
