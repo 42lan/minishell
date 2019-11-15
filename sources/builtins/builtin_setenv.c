@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/14 15:44:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/15 17:12:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int				builtin_setenv(const char *line)
 	char		*value;
 	char		*trimmed;
 
-	trimmed = ft_strtrim(line + 6);
+	trimmed = ft_strtrim(line);
 	if (!*trimmed)
 		builtin_env();
 	else
