@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/12 18:47:43 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/14 16:03:25 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,15 @@ int				builtin_cd(const char *line)
 	else if (ft_strnequ(path, "-", 1))
 		path = ft_getenv("OLDPWD");
 	else if (ft_strnequ(path, "./", 2))
-		path = form_path(cwd, path);
+		path = form_path(cwd, path + 2);
 	if (chdir(path) < 0)
 	{
 		print_enoent(path);
 		return (0);
 	}
-	int i = -1;
-	while (environ[++i])
-		if (ft_strnequ(environ[i], "OLDPWD", 6))
-		{
-			ft_unsetenv("OLDPWD");
-			ft_printf(">>>%d\n", ft_setenv("OLDPWD", cwd));
-		}
-	i = -1;
-	while (environ[++i])
-		if (ft_strnequ(environ[i], "PWD", 6))
-		{
-			ft_unsetenv("PWD");
-			ft_setenv("PWD", path);
-		}
-	//ft_setenv("PWD", path);
-	// builtin_setenv(PWD, cwd, 1);
-	//ft_strdel(&path);
+	ft_unsetenv("OLDPWD");
+	ft_setenv("OLDPWD", cwd, 1);
+	ft_unsetenv("PWD");
+	ft_setenv("PWD", path, 1);
 	return (1);
 }
