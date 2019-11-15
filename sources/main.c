@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/12 18:41:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/15 19:46:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				main(void)
 	char		**commands;
 
 	//clear_console();
-	environ = duplicate_environ();
+	environ = set_environ();
 	signal(SIGINT, (void*)sigint_handler);
 	while (1)
 	{
