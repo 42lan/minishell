@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 15:44:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/14 16:36:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/15 19:44:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,22 @@ int				ft_setenv(const char *name, const char *value, int overwrite)
 	new_variable = set_new_variable(name, value);
 	if (!is_var_exist(name))
 	{
-		if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
-			ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
-		while (environ[++i])
-			new_environ[i] = environ[i];
-		new_environ[i] = new_variable;
-		new_environ[i + 1] = NULL;
+		if (!environ || !*environ)
+		{
+			if (!(new_environ = ft_strnew2d(1 + 1)))
+				ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
+			new_environ[0] = new_variable;
+			new_environ[1] = NULL;
+		}
+		else
+		{
+			if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
+				ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
+			while (environ[++i])
+				new_environ[i] = environ[i];
+			new_environ[i] = new_variable;
+			new_environ[i + 1] = NULL;
+		}
 		environ = new_environ;
 	}
 	else
