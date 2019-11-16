@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/14 15:50:59 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/16 16:45:34 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,31 +45,31 @@ INCDIR		= ./includes
 # **************************************************************************** #
 # List of source files
 
-SRCNAME		= builtins/builtin_builtins.c\
-			  builtins/builtin_cd.c\
-			  builtins/builtin_echo.c\
-			  builtins/builtin_env.c\
-			  builtins/builtin_exit.c\
-			  builtins/builtin_setenv.c\
-			  check_access.c\
-			  display_prompt.c\
-			  duplicate_environ.c\
-			  errors.c\
-			  execute.c\
-			  execute_builtin.c\
-			  execute_command.c\
-			  expansion.c\
-			  find_executable.c\
-			  ft_setenv.c\
-			  ft_unsetenv.c\
-			  get_input.c\
-			  history.c\
-			  is_builtin.c\
-			  main.c\
-			  parse_input.c\
-			  tools/clear_console.c\
-			  tools/ft_arraydel.c\
-			  tools/print_commands.c
+SRCNAME		= main.c	\
+			  builtins/builtin_builtins.c	\
+			  builtins/builtin_cd.c			\
+			  builtins/builtin_echo.c		\
+			  builtins/builtin_env.c		\
+			  builtins/builtin_exit.c		\
+			  builtins/builtin_setenv.c		\
+			  builtins/ft_clear.c			\
+			  builtins/ft_setenv.c			\
+			  builtins/ft_unsetenv.c		\
+			  execution/execute.c			\
+			  execution/execute_builtin.c	\
+			  execution/execute_command.c	\
+			  execution/find_executable.c	\
+			  output/display_prompt.c		\
+			  output/errors.c				\
+			  output/print_commands.c		\
+			  predicates/is_builtin.c		\
+			  tools/check_access.c			\
+			  tools/expansion.c				\
+			  tools/ft_arraydel.c			\
+			  tools/get_input.c				\
+			  tools/history.c				\
+			  tools/parse_input.c			\
+			  tools/set_environ.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
