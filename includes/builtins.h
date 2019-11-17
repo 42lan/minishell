@@ -6,13 +6,12 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:10:52 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/16 17:04:53 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/17 11:20:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUILTINS_H
 # define BUILTINS_H
-# include <stdlib.h>
 
 int				ft_setenv(const char *name, const char *value, int overwrite);
 int				ft_unsetenv(const char *name);
@@ -34,7 +33,7 @@ static char		*g_builtins[] = {
 	"exit",
 	"setenv",
 	"unsetenv",
-	NULL
+	0
 };
 
 #endif
