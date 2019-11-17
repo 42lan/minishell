@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 14:18:21 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/20 12:00:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/17 13:49:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,18 @@ int			ft_count_words(char const *s, char c)
 	int		i;
 	int		words;
 
-	i = 0;
+	(void)c;
+	i = -1;
 	words = 0;
-	while (s[i] != '\0')
-	{
+	if (!s || !*s)
+		return (0);
+	while (s[++i])
 		if (!ft_isseparator(s[i], c))
 		{
-			words++;
-			while (!ft_isseparator(s[i], c) && s[i] != '\0')
-				i++;
+			++words;
+			while (!ft_isseparator(s[++i], c))
+				if (s[i + 1] == '\0')
+					return (words);
 		}
-		i++;
-	}
 	return (words);
 }
