@@ -25,19 +25,15 @@ char		*get_input(void)
 	char	*tmp;
 	char	*input;
 
+	input = NULL;
 	if (get_next_line(0, &input) <= 0)
-	{
-		ft_strdel(&input);
-		ft_perror("minishell: GNL call returned value < 1 in get_input()");
-	}
-	if (*input)
+		if (!input)
+			ft_strdel(&input);
+	if (input != NULL)
 	{
 		tmp = input;
 		if ((input = ft_strtrim(input)) == NULL)
-		{
 			ft_strdel(&input);
-			ft_perror("minishell: ft_strtrim() failed in get_input()");
-		}
 		ft_strdel(&tmp);
 	}
 	return (input);
