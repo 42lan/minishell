@@ -32,8 +32,6 @@ char		*get_input(void)
 	}
 	if (*input)
 	{
-		ft_printf("--------------------------\n");
-		ft_printf("--------[%s]-------\n", input);
 		tmp = input;
 		if ((input = ft_strtrim(input)) == NULL)
 		{
