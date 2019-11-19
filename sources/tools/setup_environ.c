@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_environ.c                                      :+:      :+:    :+:   */
+/*   setup_environ.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -37,7 +37,7 @@ static char		**duplicate_environ(void)
 	return (new_environ);
 }
 
-char			**set_environ(void)
+char			**setup_environ(void)
 {
 	char		**new_environ;
 

@@ -41,6 +41,6 @@ void	clear_console(void);
 void	print_commands(char **commands);
 void	ft_arraydel(char **array);
 
-char	**set_environ(void);
+char	**setup_environ(void);
 int		total_environ_rows(void);
 #endif
