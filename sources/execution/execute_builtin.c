@@ -24,8 +24,6 @@ void		execute_builtin(const char *command, const char *line)
 		builtin_env();
 	else if (ft_strequ(command, "exit"))
 		builtin_exit();
-	else if (ft_strequ(command, "clear"))
-		ft_clear();
 	else if (ft_strequ(command, "setenv"))
 		builtin_setenv(line + 6);
 	else if (ft_strequ(command, "unsetenv"))
