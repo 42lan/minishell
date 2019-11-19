@@ -28,19 +28,13 @@ int			execute(const char *line)
 	if (!line || !*line)
 		return (0);
 	if ((argv = ft_strsplit(line, ' ')) == NULL)
-	{
-		ft_perror("minishell: ft_strsplit() failed in execute_command()");
 		return (0);
-	}
 	if (is_builtin(argv[0]))
 		execute_builtin(argv[0], line);
 	else
 	{
 		if ((pid = fork()) < 0)
-		{
-			ft_perror("minishell: fork() failed in execute_command()");
 			return (0);
-		}
 		else if (pid == 0)
 			execute_command(argv);
 		waitpid(pid, NULL, 0);
