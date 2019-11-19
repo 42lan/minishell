@@ -44,6 +44,7 @@ char			**setup_environ(void)
 	if (!environ || !*environ)
 	{
 		ft_setenv("SHELL", "minishell", 1);
+		ft_setenv("SHLVL", "1", 1);
 		ft_setenv("HOME", "/Users/amalsago", 1);
 		ft_setenv("PATH", "/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin", 1);
 		new_environ = environ;
