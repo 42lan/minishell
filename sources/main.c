@@ -28,10 +28,9 @@ void			nl_prompt(void)
 	display_prompt();
 }
 
-void			signals_handler(void)
+void			sigint_handler(void)
 {
 	signal(SIGINT, (void*)nl_prompt);
-	signal(SIGTSTP, (void*)nl_prompt);
 }
 
 int				main(void)
@@ -41,7 +40,7 @@ int				main(void)
 	char		**commands;
 
 	environ = set_environ();
-	signals_handler();
+	sigint_handler();
 	while (1)
 	{
 		i = -1;
