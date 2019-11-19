@@ -22,13 +22,13 @@
 
 extern char		**environ;
 
-void			nl_prompt(void)
+static void		nl_prompt(void)
 {
 	ft_putchar('\n');
 	display_prompt();
 }
 
-void			sigint_handler(void)
+static void		sigint_handler(void)
 {
 	signal(SIGINT, (void*)nl_prompt);
 }
