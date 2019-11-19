@@ -12,9 +12,9 @@
 
 #include "minishell.h"
 
-void			ft_arraydel(char **array)
+void		ft_arraydel(char **array)
 {
-	int			i;
+	int		i;
 
 	i = -1;
 	if (array && *array)
