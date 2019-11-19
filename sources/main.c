@@ -22,10 +22,16 @@
 
 extern char		**environ;
 
-void			sigint_handler(void)
+void			nl_prompt(void)
 {
 	ft_putchar('\n');
 	display_prompt();
+}
+
+void			signals_handler(void)
+{
+	signal(SIGINT, (void*)nl_prompt);
+	signal(SIGTSTP, (void*)nl_prompt);
 }
 
 int				main(void)
@@ -34,23 +40,24 @@ int				main(void)
 	char		*line;
 	char		**commands;
 
-	//clear_console();
 	environ = set_environ();
-	signal(SIGINT, (void*)sigint_handler);
+	signals_handler();
 	while (1)
 	{
 		i = -1;
 		display_prompt();
 		line = get_input();
-		if (*line)
+		if (line)
 		{
 			write_history(line);
 			commands = parse_input(line);
 			while (commands[++i])
 				execute(commands[i]); // What if execute_command() returns <= 0?
 			ft_arraydel(commands);
+			ft_strdel(&line);
 		}
-		ft_strdel(&line);
+		else
+			ft_putchar('\n');
 	}
 	ft_strdel(&line);
 	ft_printf("minishell terminated correctly\n");
