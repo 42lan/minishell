@@ -39,7 +39,7 @@ int				main(void)
 	char		*line;
 	char		**commands;
 
-	environ = set_environ();
+	environ = setup_environ();
 	sigint_handler();
 	while (1)
 	{
@@ -51,7 +51,8 @@ int				main(void)
 			write_history(line);
 			commands = parse_input(line);
 			while (commands[++i])
-				execute(commands[i]); // What if execute_command() returns <= 0?
+				if (execute(commands[i]) == 0)
+					ft_perror("Failed to execute command");
 			ft_arraydel(commands);
 			ft_strdel(&line);
 		}
@@ -59,6 +60,5 @@ int				main(void)
 			ft_putchar('\n');
 	}
 	ft_strdel(&line);
-	ft_printf("minishell terminated correctly\n");
 	return (0);
 }
