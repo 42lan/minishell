@@ -20,7 +20,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Wall -Wextra -Werror -g -g3
+WOPT		= -Wall -Wextra -Werror# -g -g3
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
@@ -69,7 +69,7 @@ SRCNAME		= main.c	\
 			  tools/get_input.c				\
 			  tools/history.c				\
 			  tools/parse_input.c			\
-			  tools/set_environ.c
+			  tools/setup_environ.c
 
 # **************************************************************************** #
 # Automatic variables where are listed the names of sources and objects files
