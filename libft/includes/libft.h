@@ -23,6 +23,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdint.h>
 
 typedef struct		s_list
 {
