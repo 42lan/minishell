@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/16 16:45:34 by amalsago         ###   ########.fr        #
+#    Updated: 2019/11/20 11:41:20 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,8 @@ SRCNAME		= main.c	\
 			  builtins/builtin_echo.c		\
 			  builtins/builtin_env.c		\
 			  builtins/builtin_exit.c		\
+			  builtins/builtin_pwd.c		\
 			  builtins/builtin_setenv.c		\
-			  builtins/ft_clear.c			\
 			  builtins/ft_setenv.c			\
 			  builtins/ft_unsetenv.c		\
 			  execution/execute.c			\

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:31:37 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/16 16:46:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/20 11:45:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void		execute_builtin(const char *command, const char *line)
 		builtin_env();
 	else if (ft_strequ(command, "exit"))
 		builtin_exit();
+	else if (ft_strequ(command, "pwd"))
+		builtin_pwd();
 	else if (ft_strequ(command, "setenv"))
 		builtin_setenv(line + 6);
 	else if (ft_strequ(command, "unsetenv"))

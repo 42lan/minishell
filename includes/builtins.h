@@ -18,6 +18,7 @@ int				builtin_cd(const char *line);
 int				builtin_echo(const char *line);
 int				builtin_env(void);
 void			builtin_exit(void);
+int				builtin_pwd(void);
 int				builtin_setenv(const char *line);
 int				ft_setenv(const char *name, const char *value, int overwrite);
 int				ft_unsetenv(const char *name);
@@ -28,6 +29,7 @@ static char		*g_builtins[] = {
 	"echo",
 	"env",
 	"exit",
+	"pwd",
 	"setenv",
 	"unsetenv",
 	0
