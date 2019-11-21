@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/20 14:37:34 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:24:02 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static void		minishell(char *line)
 		if (execute(commands[i]) == 0)
 			ft_perror("Failed to execute command");
 	ft_arraydel(commands);
-	ft_strdel(&line);
 }
 
 int				main(void)
@@ -58,7 +57,15 @@ int				main(void)
 	{
 		display_prompt();
 		line = get_input();
-		(line) ? minishell(line): ft_putchar('\n');
+		if (line)
+		{
+			if (*line)
+				minishell(line);
+			ft_strdel(&line);
+		}
+		else
+			ft_putchar('\n');
+
 	}
 	ft_strdel(&line);
 	return (0);
