@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/15 20:00:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/22 15:11:59 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static char		**duplicate_environ(void)
 		return (NULL);
 	while (environ[++i])
 		new_environ[i] = ft_strdup(environ[i]);
+	new_environ[i] = NULL;
 	return (new_environ);
 }
 
