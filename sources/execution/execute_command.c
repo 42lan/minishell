@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:33:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/07 14:26:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/26 15:31:28 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int					execute_command(char **command)
 	if (!(realpath = find_executable(command[0])))
 	{
 		print_enofound(command[0]);
-		ft_arraydel(command);
+		ft_strarraydel(&command);
 		exit(EXIT_FAILURE);
 	}
 	if (check_access(realpath))
