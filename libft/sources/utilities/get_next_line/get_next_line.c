@@ -6,21 +6,11 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/25 09:12:15 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/16 12:15:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/26 12:08:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static int			ft_strclen(const char *s, int c)
-{
-	int		index;
-
-	index = 0;
-	while (s[index] != '\0' && s[index] != c)
-		index++;
-	return (index);
-}
 
 static int			get_line(char **save, char **line)
 {

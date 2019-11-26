@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/08 11:02:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/26 12:05:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,12 +135,14 @@ void				ft_qsort(char **array, int left, int right);
 ** STRING
 */
 
+void				ft_strarraydel(char ***array_ptr);
 char				*form_path(const char *dirname, char const *basename);
 char				*ft_getenv(const char *name);
 char				*ft_realpath(const char *dirname, char const *basename);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
 int					ft_strchr_index(char *s, char c);
+size_t				ft_strclen(const char *s, char c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dst, const char *src);
@@ -152,7 +154,7 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
-size_t				ft_strlen(const char *s1);
+size_t				ft_strlen(const char *s);
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strncat(char *s1, const char *s2, size_t n);
