@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:43:25 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/19 19:25:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/27 15:45:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ char		*ft_strtrim(char const *s)
 	j = ft_strlen(s) - 1;
 	while (ft_iswhitespace(s[j]))
 		j--;
-	if (!(new_str = ft_strnew(j - i + 1)))
+	if (!(new_str = ft_strsub(s, i, j - i + 1)))
 		return (NULL);
-	new_str = ft_strsub(s, i, j - i + 1);
 	return (new_str);
 }
