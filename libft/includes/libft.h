@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/26 12:05:40 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/27 18:17:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dst, const char *src);
 size_t				ft_strcspn(const char *s, const char *charset);
+char				*ft_strctrim(char const *s, char c);
 void				ft_strdel(char **as);
 char				*ft_strdup(const char *s1);
 int					ft_strequ(char const *s1, char const *s2);
