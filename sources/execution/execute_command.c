@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:33:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/26 15:31:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/30 19:02:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,8 @@ void				increment_level(void)
 	ft_setenv("SHLVL", ft_itoa(lvl + 1), 1);
 }
 
-int					execute_command(char **command)
+int					execute_command(char *realpath, char **command)
 {
-	char			*realpath;
-
-	if (!(realpath = find_executable(command[0])))
-	{
-		print_enofound(command[0]);
-		ft_strarraydel(&command);
-		exit(EXIT_FAILURE);
-	}
 	if (check_access(realpath))
 	{
 		if (ft_strequ(realpath, "./minishell"))
