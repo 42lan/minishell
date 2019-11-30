@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/26 15:22:50 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/11/30 12:49:51 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char		**duplicate_environ(void)
 	char		**new_environ;
 
 	i = -1;
-	if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
+	if (!(new_environ = ft_strnew2d(total_environ_rows())))
 		return (NULL);
 	while (environ[++i])
 		new_environ[i] = ft_strdup(environ[i]);
