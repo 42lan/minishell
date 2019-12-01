@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/28 16:19:34 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/01 12:50:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,32 @@
 **	Upon successful completion, the value 1 is returned otherwise the value 0.
 */
 
-extern char		**environ;
-
-int				builtin_cd(const char *line)
+static const char	*determine_path(const char *line, const char *cwd)
 {
-	char		*cwd;
-	const char	*path;
+	const char		*path;
 
-	cwd = NULL;
-	cwd = getcwd(cwd, 0);
 	path = line + ft_strspn(line, "cd ");
 	if (ft_strequ(path, "\0"))
-		path = ft_getenv("HOME");
+	{
+		if (!(path = ft_getenv("HOME")))
+			ft_perror("minishell: cd: HOME not set");
+	}
 	else if (ft_strnequ(path, "-", 1))
 		path = ft_getenv("OLDPWD");
 	else if (ft_strnequ(path, "./", 2))
 		path = form_path(cwd, path + 2);
+	return (path);
+}
+
+int					builtin_cd(const char *line)
+{
+	const char		*path;
+	char			*cwd;
+
+	cwd = NULL;
+	cwd = getcwd(cwd, 0);
+	if (!(path = determine_path(line, cwd)))
+		return (0);
 	if (chdir(path) < 0)
 	{
 		print_enoent(line + ft_strspn(line, "cd "));
