@@ -6,23 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/30 12:49:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/01 14:11:06 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 extern char		**environ;
-
-int				total_environ_rows(void)
-{
-	int			i;
-
-	i = 0;
-	while (environ[i])
-		i++;
-	return (i);
-}
 
 static char		**duplicate_environ(void)
 {
