@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 15:44:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/01 16:21:10 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/01 16:21:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ static int		is_var_exist(const char *name)
 	i = -1;
 	while (environ[++i])
 	{
-		len = ft_strlen(name); if (ft_strnequ(environ[i], name, len) && environ[i][len] == '=')
+		len = ft_strlen(name);
+		if (ft_strnequ(environ[i], name, len) && environ[i][len] == '=')
 			return (1);
 	}
 	return (0);
 }
 
-static void		overwrite_environ_variable(const char *name, const char *new_variable)
+static void		overwrite_environ_variable(const char *name,
+				const char *new_variable)
 {
 	int			i;
 	int			len;
@@ -93,7 +95,7 @@ int				ft_setenv(const char *name, const char *value, int overwrite)
 		if (!environ || !*environ)
 		{
 			if (!(new_environ = ft_strnew2d(1)))
-				ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
+				ft_perror_exit("ft_strnew2d() failed in ft_setenv()");
 			new_environ[0] = new_variable;
 			new_environ[1] = NULL;
 		}
@@ -101,7 +103,7 @@ int				ft_setenv(const char *name, const char *value, int overwrite)
 		{
 			tmp = environ;
 			if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
-				ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
+				ft_perror_exit("ft_strnew2d() failed in ft_setenv()");
 			while (environ[++i])
 				new_environ[i] = environ[i];
 			new_environ[i] = new_variable;
