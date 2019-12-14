@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/30 20:18:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/14 16:35:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ static void		minishell(t_msh *data)
 	write_history(data, data->line);
 	data->commands = parse_input(data->line);
 	while (data->commands[++i])
-		execute(data, data->commands[i]);
+		if ((data->argv = ft_strsplit(data->commands[i], ' ')))
+		{
+			execute(data, data->commands[i]);
+			ft_strarraydel(&data->argv);
+		}
 	ft_strarraydel(&data->commands);
 }
 
@@ -58,9 +62,10 @@ int				main(void)
 {
 	t_msh		data;
 
+	sigint_handler();
 	initialize_msh(&data);
 	environ = setup_environ(&data);
-	sigint_handler();
+	increment_level();
 	while (1)
 	{
 		display_prompt();
