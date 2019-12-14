@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:28:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/30 20:17:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/14 16:42:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,18 @@ int			execute(t_msh *data, const char *line)
 		execute_builtin(data, data->argv[0], line);
 	else
 	{
-		if (!(realpath = find_executable(data->argv[0])))
+		if ((realpath = find_executable(data->argv[0])))
 		{
-			print_enofound(data->argv[0]);
-			ft_strarraydel(&data->argv);
-			return (0);
+			if ((pid = fork()) < 0)
+				return (0);
+			else if (pid == 0)
+				execute_command(realpath, data->argv);
+			waitpid(pid, NULL, 0);
+			ft_strdel(&realpath);
 		}
-		if ((pid = fork()) < 0)
-			return (0);
-		else if (pid == 0)
-			execute_command(realpath, data->argv);
-		waitpid(pid, NULL, 0);
-		ft_strdel(&realpath);
+		else
+			print_enofound(data->argv[0]);
+
 	}
-	ft_strarraydel(&data->argv);
 	return (1);
 }
