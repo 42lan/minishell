@@ -27,8 +27,6 @@ int			execute(t_msh *data, const char *line)
 
 	if (!line || !*line)
 		return (0);
-	if ((data->argv = ft_strsplit(line, ' ')) == NULL)
-		return (0);
 	if (is_builtin(data->argv[0]))
 		execute_builtin(data, data->argv[0], line);
 	else
