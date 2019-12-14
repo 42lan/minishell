@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/30 20:20:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:46:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct	s_msh
 	char		**environ;
 	char		**commands;
 }				t_msh;
+
+void			increment_level(void);
 
 char			*get_input(void);
 char			**parse_input(const char *line);
