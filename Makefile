@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/12/01 14:12:21 by amalsago         ###   ########.fr        #
+#    Updated: 2019/12/02 15:47:06 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCNAME		= main.c	\
 			  tools/ft_arraydel.c			\
 			  tools/get_input.c				\
 			  tools/history.c				\
+			  tools/increment_level.c		\
 			  tools/parse_input.c			\
 			  tools/total_environ_rows.c	\
 			  tools/setup_environ.c
