@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:28:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/14 16:42:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 06:21:39 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			execute(t_msh *data, const char *line)
 		execute_builtin(data, data->argv[0], line);
 	else
 	{
-		if ((realpath = find_executable(data->argv[0])))
+		if ((realpath = find_executable(data->argv[0]))) // MALLOC
 		{
 			if ((pid = fork()) < 0)
 				return (0);
@@ -40,8 +40,6 @@ int			execute(t_msh *data, const char *line)
 			waitpid(pid, NULL, 0);
 			ft_strdel(&realpath);
 		}
-		else
-			print_enofound(data->argv[0]);
 
 	}
 	return (1);

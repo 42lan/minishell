@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/14 16:35:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 06:42:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,6 @@ static void		sigint_handler(void)
 	signal(SIGINT, (void*)nl_prompt);
 }
 
-static void		minishell(t_msh *data)
-{
-	int			i;
-
-	i = -1;
-	write_history(data, data->line);
-	data->commands = parse_input(data->line);
-	while (data->commands[++i])
-		if ((data->argv = ft_strsplit(data->commands[i], ' ')))
-		{
-			execute(data, data->commands[i]);
-			ft_strarraydel(&data->argv);
-		}
-	ft_strarraydel(&data->commands);
-}
-
 void			initialize_msh(t_msh *data)
 {
 	data->line = NULL;
@@ -58,18 +42,34 @@ void			initialize_msh(t_msh *data)
 	data->commands = NULL;
 }
 
+static void		minishell(t_msh *data)
+{
+	int			i;
+
+	i = -1;
+	write_history(data, data->line);
+	data->commands = parse_input(data->line); // MALLOC
+	while (data->commands[++i])
+		if ((data->argv = ft_strsplit(data->commands[i], ' '))) // MALLOC
+		{
+			execute(data, data->commands[i]);
+			ft_strarraydel(&data->argv);
+		}
+	ft_strarraydel(&data->commands);
+}
+
 int				main(void)
 {
 	t_msh		data;
 
 	sigint_handler();
 	initialize_msh(&data);
-	environ = setup_environ(&data);
-	increment_level();
+	environ = setup_environ(&data); // MALLOC
+	//increment_level();
 	while (1)
 	{
 		display_prompt();
-		data.line = get_input();
+		data.line = get_input(); // MALLOC
 		if (data.line)
 		{
 			if (*(data.line))

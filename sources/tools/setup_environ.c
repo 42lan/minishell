@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 03:19:07 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 06:40:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ char			**setup_environ(t_msh *data)
 		data->environ = environ;
 	}
 	else
-		data->environ = duplicate_environ();
+		data->environ = duplicate_environ(); // MALLOC
 	return (data->environ);
 }

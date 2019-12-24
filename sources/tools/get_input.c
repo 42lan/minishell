@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 13:29:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/21 13:50:40 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 06:41:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char		*get_input(void)
 	if (input != NULL && *input)
 	{
 		tmp = input;
-		if ((input = ft_strtrim(input)) == NULL)
+		if ((input = ft_strtrim(input)) == NULL) // MALLOC
 			ft_strdel(&input);
 		ft_strdel(&tmp);
 	}
