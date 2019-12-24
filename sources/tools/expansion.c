@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/11 18:33:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 03:31:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static void		expand_dollar(char **command)
 	newstr = ft_strsub(*command, 0, ft_strcspn(*command, "$"));
 	while (*variables)
 	{
-		ft_printf("VARIABLE=%s.\n", *variables);
 		tmp_var = *variables;
 		*variables = ft_strtrim(*variables); // MALLOC
 		if ((value = ft_getenv(*variables)))
@@ -69,7 +68,7 @@ void			expand_symbols(char **command)
 	{
 		if ((*command)[i] == '~' && (*command)[i - 1] != '"')
 			expand_tilde(command);
-		else if ((*command)[i] == '$')
+		else if ((*command)[i] == '$' && (*command)[i + 1])
 			expand_dollar(command);
 	}
 }
