@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_command.c                                  :+:      :+:    :+:   */
+/*   increment_level.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 11:33:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/02 17:53:49 by amalsago         ###   ########.fr       */
+/*   Created: 2019/12/02 15:45:10 by amalsago          #+#    #+#             */
+/*   Updated: 2019/12/03 12:55:56 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-extern char			**environ;
-
-int					execute_command(const char *realpath, char **command)
+void				increment_level(void)
 {
-	if ((execve(realpath, command, environ)) < 0)
-		ft_perror("execve() failed in child_handler()");
-	exit(EXIT_FAILURE);
+	static int		level = 0;
+
+	level++;
+	ft_printf(">>%d\n", level);
+	ft_setenv("SHLVL", ft_itoa_static(level), 1);
+	//ft_setenv("SHLVL", ft_itoa(level), 1); // MALLOC - NEED TO BE FREED
 }

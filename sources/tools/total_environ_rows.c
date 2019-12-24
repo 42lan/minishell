@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_command.c                                  :+:      :+:    :+:   */
+/*   total_environ_rows.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 11:33:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/02 17:53:49 by amalsago         ###   ########.fr       */
+/*   Created: 2019/11/30 21:44:55 by amalsago          #+#    #+#             */
+/*   Updated: 2019/11/30 21:51:04 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-extern char			**environ;
+extern char		**environ;
 
-int					execute_command(const char *realpath, char **command)
+int				total_environ_rows(void)
 {
-	if ((execve(realpath, command, environ)) < 0)
-		ft_perror("execve() failed in child_handler()");
-	exit(EXIT_FAILURE);
+	int			i;
+
+	i = 0;
+	while (environ[i])
+		i++;
+	return (i);
 }

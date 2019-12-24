@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/21 14:24:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 06:42:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,40 +33,51 @@ static void		sigint_handler(void)
 	signal(SIGINT, (void*)nl_prompt);
 }
 
-static void		minishell(char *line)
+void			initialize_msh(t_msh *data)
+{
+	data->line = NULL;
+	data->history_file = NULL;
+	data->argv = NULL;
+	data->environ = NULL;
+	data->commands = NULL;
+}
+
+static void		minishell(t_msh *data)
 {
 	int			i;
-	char		**commands;
 
 	i = -1;
-	write_history(line);
-	commands = parse_input(line);
-	while (commands[++i])
-		if (execute(commands[i]) == 0)
-			ft_perror("Failed to execute command");
-	ft_arraydel(commands);
+	write_history(data, data->line);
+	data->commands = parse_input(data->line); // MALLOC
+	while (data->commands[++i])
+		if ((data->argv = ft_strsplit(data->commands[i], ' '))) // MALLOC
+		{
+			execute(data, data->commands[i]);
+			ft_strarraydel(&data->argv);
+		}
+	ft_strarraydel(&data->commands);
 }
 
 int				main(void)
 {
-	char		*line;
+	t_msh		data;
 
-	environ = setup_environ();
 	sigint_handler();
+	initialize_msh(&data);
+	environ = setup_environ(&data); // MALLOC
+	//increment_level();
 	while (1)
 	{
 		display_prompt();
-		line = get_input();
-		if (line)
+		data.line = get_input(); // MALLOC
+		if (data.line)
 		{
-			if (*line)
-				minishell(line);
-			ft_strdel(&line);
+			if (*(data.line))
+				minishell(&data);
+			ft_strdel(&(data.line));
 		}
 		else
 			ft_putchar('\n');
-
 	}
-	ft_strdel(&line);
 	return (0);
 }

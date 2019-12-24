@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 20:30:26 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/20 10:59:42 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/01 14:20:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char		*ft_strdup(const char *s1)
 	char	*s2;
 
 	i = 0;
-	if (!(s2 = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1)))
+	if (!(s2 = ft_strnew(ft_strlen(s1))))
 		return (NULL);
 	while (*s1)
 	{

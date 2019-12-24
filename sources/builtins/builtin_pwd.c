@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 11:39:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/20 12:29:35 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/17 23:51:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int			builtin_pwd(void)
 	if (cwd != NULL)
 		ft_printf("%s\n", cwd);
 	else
-		ft_printf("%s\n", ft_getenv("PWD"));
+		ft_perror("pwd: .: Permission denied");
+	ft_strdel(&cwd);
 	return (0);
 }

@@ -6,24 +6,28 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 16:06:56 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/11 14:32:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/23 05:23:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void				write_history(const char *line)
+void				write_history(t_msh *data, const char *line)
 {
-	int				fd;
-	int				mode;
+	char			*home_dir;
+	char			*filename;
 	int				oflag;
-	static char		*history_file;
+	int				mode;
+	int				fd;
 
-	mode = S_IRUSR | S_IWUSR;
+	home_dir = NULL;
+	filename = ".minishell_history";
 	oflag = O_RDWR | O_APPEND | O_CREAT;
-	if (!history_file)
-		history_file = form_path(ft_getenv("HOME"), ".minishell_history");
-	if ((fd = open(history_file, oflag, mode)) < 0)
+	mode = S_IRUSR | S_IWUSR;
+	if (!data->history_file)
+		data->history_file = ((home_dir = ft_getenv("HOME")))
+							? form_path(home_dir, filename) : filename;
+	if ((fd = open(data->history_file, oflag, mode)) < 0)
 		ft_perror("minishell: open() failed in write_history()");
 	else
 	{

@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/20 11:41:20 by amalsago         ###   ########.fr        #
+#    Updated: 2019/12/24 03:56:59 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Wall -Wextra -Werror# -g -g3
+WOPT		= -Wall -Wextra -Werror -g -g3
 OOPT		= #-O2
 IOPT		= -I $(INCDIR)
 
@@ -63,12 +63,15 @@ SRCNAME		= main.c	\
 			  output/errors.c				\
 			  output/print_commands.c		\
 			  predicates/is_builtin.c		\
+			  predicates/is_var_exist.c		\
 			  tools/check_access.c			\
 			  tools/expansion.c				\
 			  tools/ft_arraydel.c			\
 			  tools/get_input.c				\
 			  tools/history.c				\
+			  tools/increment_level.c		\
 			  tools/parse_input.c			\
+			  tools/total_environ_rows.c	\
 			  tools/setup_environ.c
 
 # **************************************************************************** #
@@ -114,6 +117,7 @@ clean:
 	fi
 
 fclean: clean
+	@$(RM) minishell.dSYM
 	@if [ -e $(NAME) ]; then \
 		$(RM) $(NAME) \
 		&& printf $(CR)$(RED)"✗ $(NAME) is cleaned\n"$(EOC) \

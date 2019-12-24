@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 15:44:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/16 18:10:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 04:11:24 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,36 @@ static int		is_exceptions(const char *name)
 	return (0);
 }
 
-static int		is_var_exist(const char *name)
+static void		write_environ_variable(const char *new_variable)
 {
 	int			i;
-	int			len;
+	char		**tmp;
+	char		**new_environ;
 
 	i = -1;
-	while (environ[++i])
+	if (!environ || !*environ)
 	{
-		len = ft_strlen(name); if (ft_strnequ(environ[i], name, len) && environ[i][len] == '=')
-			return (1);
+		if (!(new_environ = ft_strnew2d(1)))
+			ft_perror_exit("ft_strnew2d() failed in ft_setenv()");
+		new_environ[0] = (char *)new_variable;
+		new_environ[1] = NULL;
 	}
-	return (0);
+	else
+	{
+		tmp = environ;
+		if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
+			ft_perror_exit("ft_strnew2d() failed in ft_setenv()");
+		while (environ[++i])
+			new_environ[i] = environ[i];
+		new_environ[i] = (char *)new_variable;
+		new_environ[i + 1] = NULL;
+		free(tmp);
+	}
+	environ = new_environ;
 }
 
-static void		overwrite_environ_variable(const char *name, const char *new_variable)
+static void		overwrite_environ_variable(const char *name,
+				const char *new_variable)
 {
 	int			i;
 	int			len;
@@ -58,8 +73,7 @@ static void		overwrite_environ_variable(const char *name, const char *new_variab
 		len = ft_strlen(name);
 		if (ft_strnequ(environ[i], name, len) && environ[i][len] == '=')
 		{
-			ft_unsetenv(name);
-			//ft_strdel(&environ[i]);
+			ft_strdel(&environ[i]);
 			environ[i] = (char *)new_variable;
 			break ;
 		}
@@ -80,34 +94,13 @@ static char		*set_new_variable(const char *name, const char *value)
 
 int				ft_setenv(const char *name, const char *value, int overwrite)
 {
-	int			i;
 	char		*new_variable;
-	char		**new_environ;
 
-	i = -1;
 	if (is_exceptions(name))
 		return (0);
 	new_variable = set_new_variable(name, value);
 	if (!is_var_exist(name))
-	{
-		if (!environ || !*environ)
-		{
-			if (!(new_environ = ft_strnew2d(1 + 1)))
-				ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
-			new_environ[0] = new_variable;
-			new_environ[1] = NULL;
-		}
-		else
-		{
-			if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
-				ft_perror_exit("minishell: ft_strnew2d() failed in ft_setenv()");
-			while (environ[++i])
-				new_environ[i] = environ[i];
-			new_environ[i] = new_variable;
-			new_environ[i + 1] = NULL;
-		}
-		environ = new_environ;
-	}
+		write_environ_variable(new_variable);
 	else
 		if (overwrite == 1)
 			overwrite_environ_variable(name, new_variable);

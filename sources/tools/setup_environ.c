@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/22 15:11:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 06:40:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,13 @@
 
 extern char		**environ;
 
-int				total_environ_rows(void)
-{
-	int			i;
-
-	i = 0;
-	while (environ[i])
-		i++;
-	return (i);
-}
-
 static char		**duplicate_environ(void)
 {
 	int			i;
 	char		**new_environ;
 
 	i = -1;
-	if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
+	if (!(new_environ = ft_strnew2d(total_environ_rows())))
 		return (NULL);
 	while (environ[++i])
 		new_environ[i] = ft_strdup(environ[i]);
@@ -38,19 +28,16 @@ static char		**duplicate_environ(void)
 	return (new_environ);
 }
 
-char			**setup_environ(void)
+char			**setup_environ(t_msh *data)
 {
-	char		**new_environ;
-
 	if (!environ || !*environ)
 	{
 		ft_setenv("SHELL", "minishell", 1);
 		ft_setenv("SHLVL", "1", 1);
-		ft_setenv("HOME", "/Users/amalsago", 1);
 		ft_setenv("PATH", "/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin", 1);
-		new_environ = environ;
+		data->environ = environ;
 	}
 	else
-		new_environ = duplicate_environ();
-	return (new_environ);
+		data->environ = duplicate_environ(); // MALLOC
+	return (data->environ);
 }

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/11 18:33:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 03:31:57 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,31 @@ static void		expand_tilde(char **command)
 
 static void		expand_dollar(char **command)
 {
-	int			i;
-	char		*tmp;
 	char		*value;
 	char		*newstr;
+	char		*tmp_str;
+	char		*tmp_var;
+	char		**variables;
 
-	i = -1;
-	newstr = NULL;
-	tmp = *command;
-	while ((*command)[++i])
-		if ((*command)[i] == '$')
+	variables = ft_strsplit(*command + ft_strcspn(*command, "$"), '$'); // MALLOC
+	newstr = ft_strsub(*command, 0, ft_strcspn(*command, "$"));
+	while (*variables)
+	{
+		tmp_var = *variables;
+		*variables = ft_strtrim(*variables); // MALLOC
+		if ((value = ft_getenv(*variables)))
 		{
-			if ((value = ft_getenv(&(*command)[i] + 1)) == NULL)
-			{
-				ft_printf("%s: Undefined variable.", &(*command)[i + 1]);
-				(*command)[i] = '\0';
-				return ;
-			}
-			newstr = ft_strnew(i + ft_strlen(value));
-			newstr = ft_strncpy(newstr, *command, i);
-			newstr = ft_strcat(newstr, value);
-			break ;
+			tmp_str = newstr;
+			newstr = ft_strjoin(newstr, value); // MALLOC
+			ft_strdel(&tmp_str);
 		}
+		else
+			ft_printf("%s: Undefined variable\n", *variables);
+		ft_strdel(&tmp_var);
+		variables++;
+	}
 	*command = newstr;
-	ft_strdel(&tmp);
+	ft_strarraydel(&variables);
 }
 
 void			expand_symbols(char **command)
@@ -67,7 +68,7 @@ void			expand_symbols(char **command)
 	{
 		if ((*command)[i] == '~' && (*command)[i - 1] != '"')
 			expand_tilde(command);
-		else if ((*command)[i] == '$')
+		else if ((*command)[i] == '$' && (*command)[i + 1])
 			expand_dollar(command);
 	}
 }

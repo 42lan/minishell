@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arraydel.c                                      :+:      :+:    :+:   */
+/*   ft_strarraydel.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:21:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/26 12:31:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/18 00:10:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void		ft_strarraydel(char ***array_ptr)
 	int		i;
 
 	i = -1;
-	if (array_ptr && *array_ptr && **array_ptr)
+	if (array_ptr && *array_ptr)
 	{
-		while (array_ptr[++i])
-			ft_strdel(array_ptr[i]);
-		free(*array_ptr);
+		while ((*array_ptr)[++i])
+			ft_strdel(*array_ptr + i);
+		if (*array_ptr && **array_ptr)
+			free(*array_ptr);
 		*array_ptr = NULL;
 	}
 }

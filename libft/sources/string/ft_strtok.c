@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 11:00:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/10/26 18:34:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/22 06:12:21 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@
 
 char				*ft_strtok(char *str, const char *sep)
 {
-	int				i;
 	static char		*static_str;
+	int				i;
 
-	if (!sep || (!str && !static_str))
-		return (NULL);
-	if (!str)
+	if (str == NULL && static_str != NULL)
 		str = static_str;
-	str = str + ft_strspn(str, sep);
-	i = ft_strcspn(str, sep);
-	str[i] = '\0';
-	static_str = &str[i] + 1 + ft_strspn(&str[i] + 1, sep);
-	if (*static_str == '\0')
-		static_str = NULL;
-	return (str);
+	if (str)
+	{
+		i = ft_strcspn(str, sep);
+		str = str + i;
+		static_str = str + ft_strspn(str, sep);
+		if (*static_str == '\0')
+			static_str = NULL;
+		*str = '\0';
+		return (str - i);
+	}
+	return (NULL);
 }
