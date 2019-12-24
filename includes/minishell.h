@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/02 15:46:23 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 04:07:23 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void			write_history(t_msh *data, const char *line);
 void			expand_symbols(char **command);
 char			*find_executable(const char *executable);
 int				check_access(const char *realpath);
+
 int				is_builtin(const char *command);
+int				is_var_exist(const char *name);
+
 int				execute(t_msh *data, const char *line);
 void			execute_builtin(t_msh *data, const char *command, const char *line);
 int				execute_command(const char *realpath, char **command);
