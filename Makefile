@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/12/02 15:47:06 by amalsago         ###   ########.fr        #
+#    Updated: 2019/12/24 03:56:59 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ SRCNAME		= main.c	\
 			  output/errors.c				\
 			  output/print_commands.c		\
 			  predicates/is_builtin.c		\
+			  predicates/is_var_exist.c		\
 			  tools/check_access.c			\
 			  tools/expansion.c				\
 			  tools/ft_arraydel.c			\
