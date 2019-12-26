@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 06:42:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/26 04:47:01 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void		minishell(t_msh *data)
 			execute(data, data->commands[i]);
 			ft_strarraydel(&data->argv);
 		}
-	ft_strarraydel(&data->commands);
+	//ft_strarraydel(&data->commands);
 }
 
 int				main(void)
@@ -65,7 +65,7 @@ int				main(void)
 	sigint_handler();
 	initialize_msh(&data);
 	environ = setup_environ(&data); // MALLOC
-	//increment_level();
+	increment_level();
 	while (1)
 	{
 		display_prompt();
