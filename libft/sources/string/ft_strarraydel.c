@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:21:28 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/18 00:10:18 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/26 06:02:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void		ft_strarraydel(char ***array_ptr)
 	{
 		while ((*array_ptr)[++i])
 			ft_strdel(*array_ptr + i);
-		if (*array_ptr && **array_ptr)
-			free(*array_ptr);
+		free(*array_ptr);
 		*array_ptr = NULL;
 	}
 }
