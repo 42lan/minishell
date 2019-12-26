@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 06:40:55 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/25 07:09:44 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ char			**setup_environ(t_msh *data)
 {
 	if (!environ || !*environ)
 	{
-		ft_setenv("SHELL", "minishell", 1);
-		ft_setenv("SHLVL", "1", 1);
-		ft_setenv("PATH", "/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin", 1);
+		ft_setenv("SHELL", "minishell", OVERWRITE);
+		ft_setenv("SHLVL", "1", OVERWRITE);
+		ft_setenv("PATH", "/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin", OVERWRITE);
 		data->environ = environ;
 	}
 	else
