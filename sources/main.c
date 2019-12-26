@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/26 04:47:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/26 06:02:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@
 
 extern char		**environ;
 
-static void		nl_prompt(void)
+static void		nl_prompt(int signum)
 {
+	(void)signum;
 	ft_putchar('\n');
 	display_prompt();
 }
 
-static void		sigint_handler(void)
+static void		sigint_handler()
 {
-	signal(SIGINT, (void*)nl_prompt);
+	signal(SIGINT, nl_prompt);
 }
-
 void			initialize_msh(t_msh *data)
 {
 	data->line = NULL;
@@ -55,7 +55,7 @@ static void		minishell(t_msh *data)
 			execute(data, data->commands[i]);
 			ft_strarraydel(&data->argv);
 		}
-	//ft_strarraydel(&data->commands);
+	ft_strarraydel(&data->commands);
 }
 
 int				main(void)
