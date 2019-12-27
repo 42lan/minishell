@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/26 06:02:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/27 22:40:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,13 @@ static void		minishell(t_msh *data)
 	write_history(data, data->line);
 	data->commands = parse_input(data->line); // MALLOC
 	while (data->commands[++i])
-		if ((data->argv = ft_strsplit(data->commands[i], ' '))) // MALLOC
+	{
+		if ((data->argv = ft_strsplit_spaces(data->commands[i]))) // MALLOC
 		{
 			execute(data, data->commands[i]);
 			ft_strarraydel(&data->argv);
 		}
+	}
 	ft_strarraydel(&data->commands);
 }
 
