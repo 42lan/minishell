@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/27 18:17:51 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/27 22:32:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,7 @@ char				**ft_strnew2d(size_t size);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strrchr(const char *s, int c);
 char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit_spaces(char const *s);
 size_t				ft_strspn(const char *s, const char *charset);
 char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
