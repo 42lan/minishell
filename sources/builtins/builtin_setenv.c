@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/25 07:08:28 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/27 05:47:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ int				builtin_setenv(const char *line)
 	else
 	{
 		name = ft_strtok(trimmed, " \t");
-		value = ft_strtok(NULL, " \t");
+		value = ft_strctrim(ft_strtok(NULL, " \t"), '"');
 		if (ft_setenv(name, value, OVERWRITE) != 1)
 		{
 			ft_strdel(&trimmed);
+			ft_strdel(&value);
 			return (0);
 		}
 	}
 	ft_strdel(&trimmed);
+	ft_strdel(&value);
 	return (1);
 }
