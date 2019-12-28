@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:28:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 06:21:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/28 00:36:21 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int			execute(t_msh *data, const char *line)
 			waitpid(pid, NULL, 0);
 			ft_strdel(&realpath);
 		}
-
 	}
 	return (1);
 }
