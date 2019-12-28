@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 15:24:02 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/27 01:39:20 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/28 05:19:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char		**parse_input(const char *line)
 			tmp = commands[i];
 			if ((commands[i] = ft_strtrim(commands[i])) == NULL)
 				ft_perror("minishell: ft_strtrim() failed in parse_input()");
-			//expand_symbols(&commands[i]);
+			expand_symbols(&commands[i]);
 			ft_strdel(&tmp);
 			++i;
 		}
