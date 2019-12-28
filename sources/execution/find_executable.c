@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:55:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 06:40:02 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/24 06:59:09 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char			*get_realpath(const char *executable)
 		return (ft_strdup(executable)); // MALLOC
 	}
 	else if (ft_getenv("PATH"))
-		search_in_path(executable); // MALLOC
+		realpath = search_in_path(executable); // MALLOC
 	if (!realpath)
 	{
 		if ((cwd = getcwd(cwd, 0))) // MALLOC

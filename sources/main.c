@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 06:42:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/28 06:53:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@
 
 extern char		**environ;
 
-static void		nl_prompt(void)
+static void		nl_prompt(int signum)
 {
+	(void)signum;
 	ft_putchar('\n');
 	display_prompt();
 }
 
-static void		sigint_handler(void)
+static void		sigint_handler()
 {
-	signal(SIGINT, (void*)nl_prompt);
+	signal(SIGINT, nl_prompt);
 }
 
 void			initialize_msh(t_msh *data)
@@ -50,11 +51,13 @@ static void		minishell(t_msh *data)
 	write_history(data, data->line);
 	data->commands = parse_input(data->line); // MALLOC
 	while (data->commands[++i])
-		if ((data->argv = ft_strsplit(data->commands[i], ' '))) // MALLOC
+	{
+		if ((data->argv = ft_strsplit_spaces(data->commands[i]))) // MALLOC
 		{
 			execute(data, data->commands[i]);
 			ft_strarraydel(&data->argv);
 		}
+	}
 	ft_strarraydel(&data->commands);
 }
 
@@ -63,9 +66,10 @@ int				main(void)
 	t_msh		data;
 
 	sigint_handler();
+	display_logtime();
 	initialize_msh(&data);
 	environ = setup_environ(&data); // MALLOC
-	//increment_level();
+	increment_level();
 	while (1)
 	{
 		display_prompt();

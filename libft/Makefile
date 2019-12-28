@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/11/27 18:18:05 by amalsago         ###   ########.fr        #
+#    Updated: 2019/12/27 22:33:10 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,43 +99,44 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  print/ft_putstr.c		\
 			  print/ft_putstr_fd.c	\
 			  sorting/ft_qsort.c	\
-			  string/form_path.c		\
-			  string/ft_getenv.c		\
-			  string/ft_realpath.c		\
-			  string/ft_strarraydel.c	\
-			  string/ft_strcat.c		\
-			  string/ft_strchr.c		\
-			  string/ft_strchr_index.c	\
-			  string/ft_strclen.c		\
-			  string/ft_strclr.c		\
-			  string/ft_strcmp.c		\
-			  string/ft_strcpy.c		\
-			  string/ft_strcspn.c		\
-			  string/ft_strctrim.c		\
-			  string/ft_strdel.c		\
-			  string/ft_strdup.c		\
-			  string/ft_strequ.c		\
-			  string/ft_striter.c		\
-			  string/ft_striteri.c		\
-			  string/ft_strjoin.c		\
-			  string/ft_strlcat.c		\
-			  string/ft_strlen.c		\
-			  string/ft_strmap.c		\
-			  string/ft_strmapi.c		\
-			  string/ft_strncat.c		\
-			  string/ft_strncmp.c		\
-			  string/ft_strncpy.c		\
-			  string/ft_strnequ.c		\
-			  string/ft_strnew.c		\
-			  string/ft_strnew2d.c		\
-			  string/ft_strnstr.c		\
-			  string/ft_strrchr.c		\
-			  string/ft_strsplit.c		\
-			  string/ft_strspn.c		\
-			  string/ft_strstr.c		\
-			  string/ft_strsub.c		\
-			  string/ft_strtok.c		\
-			  string/ft_strtrim.c		\
+			  string/form_path.c			\
+			  string/ft_getenv.c			\
+			  string/ft_realpath.c			\
+			  string/ft_strarraydel.c		\
+			  string/ft_strcat.c			\
+			  string/ft_strchr.c			\
+			  string/ft_strchr_index.c		\
+			  string/ft_strclen.c			\
+			  string/ft_strclr.c			\
+			  string/ft_strcmp.c			\
+			  string/ft_strcpy.c			\
+			  string/ft_strcspn.c			\
+			  string/ft_strctrim.c			\
+			  string/ft_strdel.c			\
+			  string/ft_strdup.c			\
+			  string/ft_strequ.c			\
+			  string/ft_striter.c			\
+			  string/ft_striteri.c			\
+			  string/ft_strjoin.c			\
+			  string/ft_strlcat.c			\
+			  string/ft_strlen.c			\
+			  string/ft_strmap.c			\
+			  string/ft_strmapi.c			\
+			  string/ft_strncat.c			\
+			  string/ft_strncmp.c			\
+			  string/ft_strncpy.c			\
+			  string/ft_strnequ.c			\
+			  string/ft_strnew.c			\
+			  string/ft_strnew2d.c			\
+			  string/ft_strnstr.c			\
+			  string/ft_strrchr.c			\
+			  string/ft_strsplit.c			\
+			  string/ft_strsplit_spaces.c	\
+			  string/ft_strspn.c			\
+			  string/ft_strstr.c			\
+			  string/ft_strsub.c			\
+			  string/ft_strtok.c			\
+			  string/ft_strtrim.c			\
 			  utilities/ft_printf/ft_printf.c				\
 			  utilities/ft_printf/parsing.c					\
 			  utilities/ft_printf/specs/apply_specs.c		\

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/01 17:59:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/26 23:08:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ int					builtin_cd(const char *line)
 	cwd = NULL;
 	cwd = getcwd(cwd, 0);
 	if (!(path = determine_path(line, cwd))
-		|| !check_access(path) || chdir(path) < 0)
+		|| check_access(path) != 0 || chdir(path) < 0)
 	{
 		ft_strdel(&cwd);
 		return (0);
 	}
-	ft_setenv("OLDPWD", (cwd) ? cwd : ft_getenv("PWD"), 1);
-	ft_setenv("PWD", path, 1);
+	ft_setenv("OLDPWD", (cwd) ? cwd : ft_getenv("PWD"), OVERWRITE);
+	ft_setenv("PWD", path, OVERWRITE);
 	ft_strdel(&cwd);
 	return (1);
 }

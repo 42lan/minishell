@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 17:25:08 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/08 20:52:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/26 06:30:53 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 ** 	permission test (X_OK).
 **
 ** RETURN VALUES
-**	Upon successful completion, the value 1 is returned otherwise the value 0.
+**	Upon successful completion, the value 0 is returned otherwise the value of
+**	E... defined in errno.h
 */
 
 int			check_access(const char *realpath)
@@ -27,12 +28,12 @@ int			check_access(const char *realpath)
 	if (access(realpath, F_OK) != 0)
 	{
 		print_enoent(realpath);
-		return (0);
+		return (ENOENT);
 	}
 	if (access(realpath, X_OK) != 0)
 	{
 		print_eacces(realpath);
-		return (0);
+		return (EACCES);
 	}
-	return (1);
+	return (0);
 }
