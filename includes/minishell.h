@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/26 04:50:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/28 06:48:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void			print_eacces(const char *filename);
 void			print_enoent(const char *filename);
 void			print_enofound(const char *filename);
 
+void			display_logtime(void);
 void			display_prompt(void);
 void			clear_console(void);
 void			print_commands(char **commands);

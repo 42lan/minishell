@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/27 22:40:47 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/28 06:53:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void		sigint_handler()
 {
 	signal(SIGINT, nl_prompt);
 }
+
 void			initialize_msh(t_msh *data)
 {
 	data->line = NULL;
@@ -65,6 +66,7 @@ int				main(void)
 	t_msh		data;
 
 	sigint_handler();
+	display_logtime();
 	initialize_msh(&data);
 	environ = setup_environ(&data); // MALLOC
 	increment_level();
