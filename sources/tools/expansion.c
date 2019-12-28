@@ -31,33 +31,44 @@ static void		expand_tilde(char **command)
 	ft_strdel(&tmp);
 }
 
-static void		expand_dollar(char **command)
+static void		expand_dollar_helper(char **variables, char **newstr)
 {
+	int			i;
 	char		*value;
-	char		*newstr;
 	char		*tmp_str;
 	char		*tmp_var;
+
+	i = -1;
+	while (variables[++i])
+	{
+		tmp_var = variables[i];
+		variables[i] = ft_strtrim(variables[i]); // MALLOC
+		if ((value = ft_getenv(variables[i])))
+		{
+			tmp_str = *newstr;
+			*newstr = ft_strjoin(*newstr, " "); // MALLOC
+			ft_strdel(&tmp_str);
+			tmp_str = *newstr;
+			*newstr = ft_strjoin(*newstr, value); // MALLOC
+			ft_strdel(&tmp_str);
+		}
+		else
+			ft_printf("%s: Undefined variable\n", variables[i]);
+		ft_strdel(&tmp_var);
+	}
+}
+
+static void		expand_dollar(char **command)
+{
+	char		*newstr;
 	char		**variables;
 
 	variables = ft_strsplit(*command + ft_strcspn(*command, "$"), '$'); // MALLOC
 	newstr = ft_strsub(*command, 0, ft_strcspn(*command, "$"));
-	while (*variables)
-	{
-		tmp_var = *variables;
-		*variables = ft_strtrim(*variables); // MALLOC
-		if ((value = ft_getenv(*variables)))
-		{
-			tmp_str = newstr;
-			newstr = ft_strjoin(newstr, value); // MALLOC
-			ft_strdel(&tmp_str);
-		}
-		else
-			ft_printf("%s: Undefined variable\n", *variables);
-		ft_strdel(&tmp_var);
-		variables++;
-	}
-	*command = newstr;
+	expand_dollar_helper(variables, &newstr);
 	ft_strarraydel(&variables);
+	ft_strdel(command);
+	*command = newstr;
 }
 
 void			expand_symbols(char **command)
