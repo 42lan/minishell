@@ -20,7 +20,8 @@ static void		expand_tilde(char **command)
 	char		*newstr;
 
 	tmp = *command;
-	home = ft_getenv("HOME");
+	if (!(home = ft_getenv("HOME")))
+		return ;
 	i = ft_strchr_index(*command, '~');
 	newstr = ft_strnew(ft_strlen(*command) - 1 + ft_strlen(home));
 	newstr = ft_strncpy(newstr, *command, i);
