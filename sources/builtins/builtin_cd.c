@@ -46,21 +46,22 @@ static char		*determine_path(const char *line, const char *cwd)
 	return (path);
 }
 
-int					builtin_cd(const char *line)
+int				builtin_cd(const char *line)
 {
-	const char		*path;
-	char			*cwd;
+	char		*path;
+	char		*cwd;
 
-	cwd = NULL;
-	cwd = getcwd(cwd, 0);
-	if (!(path = determine_path(line, cwd))
+	cwd = getcwd(NULL, 0); // MALLOC
+	if (!(path = determine_path(line, cwd)) // MALLOC
 		|| check_access(path) != 0 || chdir(path) < 0)
 	{
+		ft_strdel(&path);
 		ft_strdel(&cwd);
 		return (0);
 	}
 	ft_setenv("OLDPWD", (cwd) ? cwd : ft_getenv("PWD"), OVERWRITE);
 	ft_setenv("PWD", path, OVERWRITE);
+	ft_strdel(&path);
 	ft_strdel(&cwd);
 	return (1);
 }
