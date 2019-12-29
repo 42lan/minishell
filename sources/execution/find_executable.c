@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:55:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 06:59:09 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/29 05:57:22 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,16 @@ static char			*get_realpath(const char *executable)
 
 	cwd = NULL;
 	realpath = NULL;
-	if (ft_strnequ(executable, "/", 1))
+	if (ft_strnequ(executable, "/", 1) || (ft_strnequ(executable, "./", 2)))
 	{
-		if (check_access(executable) == 0)
+		if (check_access(executable) != 0)
 			return (NULL);
-		return (ft_strdup(executable)); // MALLOC
+		realpath = ft_strdup(executable); // MALLOC
 	}
 	else if (ft_getenv("PATH"))
 		realpath = search_in_path(executable); // MALLOC
 	if (!realpath)
-	{
-		if ((cwd = getcwd(cwd, 0))) // MALLOC
-		{
-			realpath = (ft_strnequ(executable, "./", 2))
-						? ft_realpath(cwd, executable + 2)
-						: ft_realpath(cwd, executable); // MALLOC
-			ft_strdel(&cwd);
-		}
-	}
+		print_enofound(executable);
 	return (realpath);
 }
 
@@ -77,17 +69,17 @@ char				*find_executable(const char *executable)
 	struct stat		file;
 	char			*realpath;
 
-	realpath = get_realpath(executable); // MALLOC
-	if (check_access(realpath))
-		if (stat(realpath, &file) == 0)
-		{
-			if (S_ISDIR(file.st_mode))
+	if ((realpath = get_realpath(executable)))// MALLOC
+		if (check_access(realpath) == 0)
+			if (stat(realpath, &file) == 0)
 			{
-				ft_printf("minishell: %s: is a directory\n",
-						ft_strrchr(realpath, '/') + 1);
-				return (NULL);
+				if (S_ISDIR(file.st_mode))
+				{
+					ft_printf("minishell: %s: is a directory\n",
+							ft_strrchr(realpath, '/') + 1);
+					return (NULL);
+				}
+				return (realpath);
 			}
-			return (realpath);
-		}
 	return (NULL);
 }
