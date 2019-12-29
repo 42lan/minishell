@@ -6,11 +6,19 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 06:47:29 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/28 06:47:46 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/29 04:58:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	display_logtime() display current time when minishell was executed.
+**
+** RETURN VALUES
+**	This function do not return a value.
+*/
 
 void			display_logtime(void)
 {

@@ -6,11 +6,19 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 10:44:23 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/04 10:53:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/29 05:52:08 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	Collection of function displaying error messages.
+**
+** RETURN VALUES
+**	This functions does not return a value.
+*/
 
 void		print_eacces(const char *filename)
 {
