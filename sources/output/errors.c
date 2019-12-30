@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 10:44:23 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/29 05:52:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/30 02:17:05 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ void		print_enofound(const char *filename)
 	error = ft_strjoin("minishell: ", filename);
 	tmp = error;
 	error = ft_strjoin(error, ": command not found");
+	ft_perror(error);
+	ft_strdel(&tmp);
+	ft_strdel(&error);
+}
+
+void		print_isdir(const char *filename)
+{
+	char	*tmp;
+	char	*error;
+
+	error = ft_strjoin("minishell: ", filename);
+	tmp = error;
+	error = ft_strjoin(error, ": is a directory");
 	ft_perror(error);
 	ft_strdel(&tmp);
 	ft_strdel(&error);
