@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/30 04:25:19 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/30 05:56:34 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				builtin_setenv(const char *line, t_msh *data)
 	char		*value;
 	char		*trimmed;
 
-	ret = 0;
+	ret = 1;
 	trimmed = ft_strtrim(line); // MALLOC
 	if (!*trimmed)
 		builtin_env();
@@ -41,9 +41,9 @@ int				builtin_setenv(const char *line, t_msh *data)
 				? ft_strctrim(trimmed + ft_strlen(name) + 1, '"') // MALLOC
 				: ft_strctrim(ft_strtok(NULL, " \t"), ' '); // MALLOC
 		ret = ft_setenv(name, value, OVERWRITE);
+		data->environ = environ;
+		ft_strdel(&value);
 	}
-	data->environ = environ;
 	ft_strdel(&trimmed);
-	ft_strdel(&value);
 	return (ret);
 }
