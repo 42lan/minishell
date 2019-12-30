@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 14:42:32 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/29 05:00:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/30 06:54:10 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 void				display_prompt(void)
 {
-	static char		*user;
+	static char		*user = NULL;
 
 	if (!user)
 		user = ft_getenv("USER");
