@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/28 06:48:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/30 02:53:00 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int				execute_command(const char *realpath, char **command);
 void			print_eacces(const char *filename);
 void			print_enoent(const char *filename);
 void			print_enofound(const char *filename);
+void			print_isdir(const char *filename);
 
 void			display_logtime(void);
 void			display_prompt(void);
@@ -66,7 +67,7 @@ int				builtin_echo(const char *line);
 int				builtin_env(void);
 void			builtin_exit(t_msh *data);
 int				builtin_pwd(void);
-int				builtin_setenv(const char *line);
+int				builtin_setenv(const char *line, t_msh *data);
 int				ft_setenv(const char *name, const char *value, int overwrite);
 int				ft_unsetenv(const char *name);
 

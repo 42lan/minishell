@@ -6,11 +6,20 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 15:44:59 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 04:11:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/30 02:51:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	ft_setenv()
+**
+** RETURN VALUES
+**	ft_setenv()
+**		Upon successful completion, the value 1 is returned otherwise 0.
+*/
 
 extern char		**environ;
 
@@ -42,7 +51,7 @@ static void		write_environ_variable(const char *new_variable)
 	i = -1;
 	if (!environ || !*environ)
 	{
-		if (!(new_environ = ft_strnew2d(1)))
+		if (!(new_environ = ft_strnew2d(1))) // MALLOC
 			ft_perror_exit("ft_strnew2d() failed in ft_setenv()");
 		new_environ[0] = (char *)new_variable;
 		new_environ[1] = NULL;
@@ -50,7 +59,7 @@ static void		write_environ_variable(const char *new_variable)
 	else
 	{
 		tmp = environ;
-		if (!(new_environ = ft_strnew2d(total_environ_rows() + 1)))
+		if (!(new_environ = ft_strnew2d(total_environ_rows() + 1))) // MALLOC
 			ft_perror_exit("ft_strnew2d() failed in ft_setenv()");
 		while (environ[++i])
 			new_environ[i] = environ[i];
@@ -84,7 +93,7 @@ static char		*set_new_variable(const char *name, const char *value)
 {
 	char		*new_variable;
 
-	new_variable = ft_strnew(((value) ? ft_strlen(value) : 0)
+	new_variable = ft_strnew(((value) ? ft_strlen(value) : 0) // MALLOC
 							+ ft_strlen(name) + 1);
 	ft_strcpy(new_variable, name);
 	ft_strcat(new_variable, "=");
@@ -98,7 +107,7 @@ int				ft_setenv(const char *name, const char *value, int overwrite)
 
 	if (is_exceptions(name))
 		return (0);
-	new_variable = set_new_variable(name, value);
+	new_variable = set_new_variable(name, value); //MALLOC
 	if (!is_var_exist(name))
 		write_environ_variable(new_variable);
 	else

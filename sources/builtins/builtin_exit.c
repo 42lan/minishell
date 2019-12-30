@@ -6,13 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:36:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/26 15:34:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/30 06:19:07 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	builtin_exit(t_msh *data)
+static void		free_memory(t_msh *data)
 {
 	ft_strdel(&(data->line));
 	ft_strdel(&(data->history_file));
@@ -20,5 +20,16 @@ void	builtin_exit(t_msh *data)
 	ft_strarraydel(&(data->environ));
 	ft_strarraydel(&(data->commands));
 	data = NULL;
-	exit(EXIT_SUCCESS);
+}
+
+void		builtin_exit(t_msh *data)
+{
+	int		value;
+	char	*trimmed;
+
+	trimmed = ft_strtrim(data->line + ft_strspn(data->line, "exit"));
+	value = ft_atoi(trimmed);
+	ft_strdel(&trimmed);
+	free_memory(data);
+	exit(value < 0 ? EXIT_SUCCESS : value);
 }

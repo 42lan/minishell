@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/29 04:46:20 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/29 22:51:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,20 @@ static char		*determine_path(const char *line, const char *cwd)
 	return (path);
 }
 
+static void		update_wd(const char *cwd)
+{
+	char		*newcwd;
+
+	newcwd = getcwd(NULL, 0); // MALLOC
+	ft_setenv("OLDPWD", (cwd) ? cwd : ft_getenv("PWD"), OVERWRITE);
+	ft_setenv("PWD", newcwd, OVERWRITE);
+	ft_strdel(&newcwd);
+}
+
 int				builtin_cd(const char *line)
 {
-	char		*path;
 	char		*cwd;
+	char		*path;
 
 	cwd = getcwd(NULL, 0); // MALLOC
 	if (!(path = determine_path(line, cwd)) // MALLOC
@@ -59,9 +69,8 @@ int				builtin_cd(const char *line)
 		ft_strdel(&cwd);
 		return (0);
 	}
-	ft_setenv("OLDPWD", (cwd) ? cwd : ft_getenv("PWD"), OVERWRITE);
-	ft_setenv("PWD", path, OVERWRITE);
-	ft_strdel(&path);
+	update_wd(cwd);
 	ft_strdel(&cwd);
+	ft_strdel(&path);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:55:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/29 05:57:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/30 02:45:36 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ static char			*get_realpath(const char *executable)
 
 	cwd = NULL;
 	realpath = NULL;
-	if (ft_strnequ(executable, "/", 1) || (ft_strnequ(executable, "./", 2)))
+	if (ft_strnequ(executable, "/", 1)
+		|| ft_strnequ(executable, "./", 2)
+		|| ft_strnequ(executable, "..", 2))
 	{
 		if (check_access(executable) != 0)
 			return (NULL);
@@ -75,8 +77,8 @@ char				*find_executable(const char *executable)
 			{
 				if (S_ISDIR(file.st_mode))
 				{
-					ft_printf("minishell: %s: is a directory\n",
-							ft_strrchr(realpath, '/') + 1);
+					print_isdir(realpath);
+					ft_strdel(&realpath);
 					return (NULL);
 				}
 				return (realpath);
