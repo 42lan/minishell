@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:36:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 06:01:05 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 06:17:03 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		free_memory(t_msh *data)
 	ft_strarraydel(&(data->argv));
 	ft_strarraydel(&(data->environ));
 	ft_strarraydel(&(data->commands));
-	*data = NULL;
+	data = NULL;
 }
 
 void			builtin_exit(t_msh *data)
