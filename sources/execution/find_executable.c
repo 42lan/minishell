@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:55:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:47:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 08:39:41 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ char				*find_executable(const char *executable)
 	char			*realpath;
 
 	if ((realpath = get_realpath(executable)))
+	{
 		if (check_access(realpath) == 0)
+		{
 			if (stat(realpath, &file) == 0)
 			{
 				if (S_ISDIR(file.st_mode))
@@ -83,5 +85,8 @@ char				*find_executable(const char *executable)
 				}
 				return (realpath);
 			}
+		}
+		ft_strdel(&realpath);
+	}
 	return (NULL);
 }
