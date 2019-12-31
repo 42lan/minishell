@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/30 05:35:45 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:52:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static int		expand_dollar_helper(char **variables, char **newstr)
 	while (*variables)
 	{
 		tmp_var = *variables;
-		*variables = ft_strtrim(*variables); // MALLOC
+		*variables = ft_strtrim(*variables);
 		ft_strdel(&tmp_var);
 		if ((value = ft_getenv(*variables)))
 		{
 			tmp_str = *newstr;
-			*newstr = ft_strjoin_sep(*newstr, value, " "); // MALLOC
+			*newstr = ft_strjoin_sep(*newstr, value, " ");
 			ft_strdel(&tmp_str);
 		}
 		else
@@ -63,8 +63,8 @@ static void		expand_dollar(char **command)
 	char		*newstr;
 	char		**variables;
 
-	variables = ft_strsplit(*command + ft_strcspn(*command, "$"), '$'); // MALLOC
-	newstr = ft_strsub(*command, 0, ft_strcspn(*command, "$")); // MALLOC
+	variables = ft_strsplit(*command + ft_strcspn(*command, "$"), '$');
+	newstr = ft_strsub(*command, 0, ft_strcspn(*command, "$"));
 	if ((expand_dollar_helper(variables, &newstr)) == 1)
 	{
 		ft_strdel(command);

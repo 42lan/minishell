@@ -6,18 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/26 06:20:25 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:52:17 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-extern char		**environ;
-
-static char		**duplicate_environ(void)
+static char			**duplicate_environ(void)
 {
-	int			i;
-	char		**new_environ;
+	int				i;
+	char			**new_environ;
+	extern char		**environ;
 
 	i = -1;
 	if (!(new_environ = ft_strnew2d(total_environ_rows())))
@@ -28,8 +27,10 @@ static char		**duplicate_environ(void)
 	return (new_environ);
 }
 
-char			**setup_environ(t_msh *data)
+char				**setup_environ(t_msh *data)
 {
+	extern char		**environ;
+
 	if (!environ || !*environ)
 	{
 		ft_setenv("SHELL", "minishell", OVERWRITE);
@@ -38,7 +39,9 @@ char			**setup_environ(t_msh *data)
 		data->environ = environ;
 	}
 	else
-		if (!(data->environ = duplicate_environ())) // MALLOC
+	{
+		if (!(data->environ = duplicate_environ()))
 			ft_perror_exit("duplicate_environ() failed in setup_environ()");
+	}
 	return (data->environ);
 }

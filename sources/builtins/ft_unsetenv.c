@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 12:07:18 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/16 19:39:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:41:18 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 **	Upon successful completion, the value 0 is returned otherwise the value 1.
 */
 
-extern char		**environ;
-
-static void		shift_environ(int i)
+static void			shift_environ(int i)
 {
+	extern char		**environ;
+
 	while (environ[++i])
 	{
 		environ[i - 1] = environ[i];
@@ -35,11 +35,12 @@ static void		shift_environ(int i)
 	}
 }
 
-int				ft_unsetenv(const char *name)
+int					ft_unsetenv(const char *name)
 {
-	int			i;
-	int			len;
-	char		*trimmed_name;
+	int				i;
+	int				len;
+	char			*trimmed_name;
+	extern char		**environ;
 
 	i = -1;
 	trimmed_name = ft_strtrim(name);

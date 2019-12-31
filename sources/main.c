@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/28 06:53:08 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:46:40 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,19 @@
 **	Upon successful completion, the value 0 is returned.
 */
 
-extern char		**environ;
-
-static void		nl_prompt(int signum)
+static void			nl_prompt(int signum)
 {
 	(void)signum;
 	ft_putchar('\n');
 	display_prompt();
 }
 
-static void		sigint_handler()
+static void			sigint_handler(void)
 {
 	signal(SIGINT, nl_prompt);
 }
 
-void			initialize_msh(t_msh *data)
+void				initialize_msh(t_msh *data)
 {
 	data->line = NULL;
 	data->history_file = NULL;
@@ -43,16 +41,16 @@ void			initialize_msh(t_msh *data)
 	data->commands = NULL;
 }
 
-static void		minishell(t_msh *data)
+static void			minishell(t_msh *data)
 {
-	int			i;
+	int				i;
 
 	i = -1;
 	write_history(data, data->line);
-	data->commands = parse_input(data->line); // MALLOC
+	data->commands = parse_input(data->line);
 	while (data->commands[++i])
 	{
-		if ((data->argv = ft_strsplit_spaces(data->commands[i]))) // MALLOC
+		if ((data->argv = ft_strsplit_spaces(data->commands[i])))
 		{
 			execute(data, data->commands[i]);
 			ft_strarraydel(&data->argv);
@@ -61,19 +59,20 @@ static void		minishell(t_msh *data)
 	ft_strarraydel(&data->commands);
 }
 
-int				main(void)
+int					main(void)
 {
-	t_msh		data;
+	t_msh			data;
+	extern char		**environ;
 
 	sigint_handler();
 	display_logtime();
 	initialize_msh(&data);
-	environ = setup_environ(&data); // MALLOC
+	environ = setup_environ(&data);
 	increment_level();
 	while (1)
 	{
 		display_prompt();
-		data.line = get_input(); // MALLOC
+		data.line = get_input();
 		if (data.line)
 		{
 			if (*(data.line))

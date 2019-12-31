@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/30 02:53:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:34:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,56 +21,6 @@
 # define CONSERVE 0
 # define OVERWRITE 1
 
-typedef struct	s_msh
-{
-	char		*line;
-	char		*history_file;
-	char		**argv;
-	char		**environ;
-	char		**commands;
-}				t_msh;
-
-void			increment_level(void);
-
-char			*get_input(void);
-char			**parse_input(const char *line);
-void			write_history(t_msh *data, const char *line);
-
-void			expand_symbols(char **command);
-char			*find_executable(const char *executable);
-int				check_access(const char *realpath);
-
-int				is_builtin(const char *command);
-int				is_var_exist(const char *name);
-
-int				execute(t_msh *data, const char *line);
-void			execute_builtin(t_msh *data, const char *command, const char *line);
-int				execute_command(const char *realpath, char **command);
-
-void			print_eacces(const char *filename);
-void			print_enoent(const char *filename);
-void			print_enofound(const char *filename);
-void			print_isdir(const char *filename);
-
-void			display_logtime(void);
-void			display_prompt(void);
-void			clear_console(void);
-void			print_commands(char **commands);
-void			ft_arraydel(char **array);
-
-char			**setup_environ(t_msh *data);
-int				total_environ_rows(void);
-
-int				builtin_builtins(const char *args);
-int				builtin_cd(const char *line);
-int				builtin_echo(const char *line);
-int				builtin_env(void);
-void			builtin_exit(t_msh *data);
-int				builtin_pwd(void);
-int				builtin_setenv(const char *line, t_msh *data);
-int				ft_setenv(const char *name, const char *value, int overwrite);
-int				ft_unsetenv(const char *name);
-
 static char		*g_builtins[] = {
 	"builtins",
 	"cd",
@@ -82,4 +32,47 @@ static char		*g_builtins[] = {
 	"unsetenv",
 	0
 };
+
+typedef struct	s_msh
+{
+	char		*line;
+	char		*history_file;
+	char		**argv;
+	char		**environ;
+	char		**commands;
+}				t_msh;
+
+int				check_access(const char *realpath);
+void			expand_symbols(char **command);
+char			*get_input(void);
+void			increment_level(void);
+char			**parse_input(const char *line);
+char			**setup_environ(t_msh *data);
+int				total_environ_rows(void);
+void			write_history(t_msh *data, const char *line);
+int				builtin_builtins(const char *args);
+int				builtin_cd(const char *line);
+int				builtin_echo(const char *line);
+int				builtin_env(void);
+void			builtin_exit(t_msh *data);
+int				builtin_pwd(void);
+int				builtin_setenv(const char *line, t_msh *data);
+void			ft_clear(void);
+int				ft_setenv(const char *name, const char *value, int overwrite);
+int				ft_unsetenv(const char *name);
+int				execute(t_msh *data, const char *line);
+void			execute_builtin(t_msh *data, const char *command,
+				const char *line);
+int				execute_command(const char *realpath, char **command);
+char			*find_executable(const char *executable);
+void			display_logtime(void);
+void			display_prompt(void);
+void			print_commands(char **commands);
+void			print_eacces(const char *filename);
+void			print_enoent(const char *filename);
+void			print_enofound(const char *filename);
+void			print_isdir(const char *filename);
+int				is_builtin(const char *command);
+int				is_var_exist(const char *name);
+
 #endif

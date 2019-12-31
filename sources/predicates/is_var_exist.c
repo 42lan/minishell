@@ -6,18 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 03:55:00 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/24 03:56:22 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:49:16 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-extern char		**environ;
-
-int				is_var_exist(const char *name)
+int					is_var_exist(const char *name)
 {
-	int			i;
-	int			len;
+	int				i;
+	int				len;
+	extern char		**environ;
 
 	i = -1;
 	while (environ[++i])

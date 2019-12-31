@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:02:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/11 18:38:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:37:54 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@
 **	Upon successful completion, the value 0 is returned.
 */
 
-extern char		**environ;
-
-int				builtin_env(void)
+int					builtin_env(void)
 {
-	int			i;
+	int				i;
+	extern char		**environ;
 
 	i = -1;
 	if (!environ || !*environ)

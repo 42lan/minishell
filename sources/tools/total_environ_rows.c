@@ -6,17 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 21:44:55 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/30 21:51:04 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:50:47 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-extern char		**environ;
-
-int				total_environ_rows(void)
+int					total_environ_rows(void)
 {
-	int			i;
+	int				i;
+	extern char		**environ;
 
 	i = 0;
 	while (environ[i])

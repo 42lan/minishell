@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:55:36 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/30 02:45:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:47:11 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static char			*search_in_path(const char *executable)
 	char			*directory;
 	char			*directories;
 
-	directories = ft_strdup(ft_getenv("PATH")); // MALLOC
+	directories = ft_strdup(ft_getenv("PATH"));
 	directory = ft_strtok(directories, ":");
 	while (directory)
 	{
-		realpath = ft_realpath(directory, executable); // MALLOC
+		realpath = ft_realpath(directory, executable);
 		if (access(realpath, F_OK) == 0)
 			break ;
 		directory = ft_strtok(NULL, ":");
@@ -57,10 +57,10 @@ static char			*get_realpath(const char *executable)
 	{
 		if (check_access(executable) != 0)
 			return (NULL);
-		realpath = ft_strdup(executable); // MALLOC
+		realpath = ft_strdup(executable);
 	}
 	else if (ft_getenv("PATH"))
-		realpath = search_in_path(executable); // MALLOC
+		realpath = search_in_path(executable);
 	if (!realpath)
 		print_enofound(executable);
 	return (realpath);
@@ -71,7 +71,7 @@ char				*find_executable(const char *executable)
 	struct stat		file;
 	char			*realpath;
 
-	if ((realpath = get_realpath(executable)))// MALLOC
+	if ((realpath = get_realpath(executable)))
 		if (check_access(realpath) == 0)
 			if (stat(realpath, &file) == 0)
 			{

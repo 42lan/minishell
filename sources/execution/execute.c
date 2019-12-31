@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:28:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/28 00:36:21 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:40:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			execute(t_msh *data, const char *line)
 		execute_builtin(data, data->argv[0], line);
 	else
 	{
-		if ((realpath = find_executable(data->argv[0]))) // MALLOC
+		if ((realpath = find_executable(data->argv[0])))
 		{
 			if ((pid = fork()) < 0)
 				return (0);
