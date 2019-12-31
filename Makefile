@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/12/29 01:44:56 by amalsago         ###   ########.fr        #
+#    Updated: 2019/12/31 03:35:35 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ SRCNAME		= main.c	\
 			  predicates/is_var_exist.c		\
 			  tools/check_access.c			\
 			  tools/expansion.c				\
-			  tools/ft_arraydel.c			\
 			  tools/get_input.c				\
 			  tools/history.c				\
 			  tools/increment_level.c		\
