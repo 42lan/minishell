@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 11:06:32 by amalsago          #+#    #+#              #
-#    Updated: 2019/12/30 04:40:50 by amalsago         ###   ########.fr        #
+#    Updated: 2019/12/31 02:58:55 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,9 @@ SRCNAME		= conversions/ft_atoi.c					\
 			  lists/ft_lstprint.c				\
 			  lists/ft_lstreverse.c				\
 			  lists/ft_lstreverse_recursive.c	\
+			  math/ft_abs.c		\
+			  math/ft_max.c		\
+			  math/ft_min.c		\
 			  memory/ft_bzero.c		\
 			  memory/ft_memalloc.c	\
 			  memory/ft_memccpy.c	\

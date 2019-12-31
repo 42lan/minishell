@@ -6,16 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:05:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/30 04:39:54 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:07:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define ABS(N) ((N) < (0) ? (-N) : (N))
-# define MIN(A,B) ((A) < (B) ? (A) : (B))
-# define MAX(A,B) ((A) > (B) ? (A) : (B))
 # define BASE_LOWER "0123456789abcdefghijklmnopqrstuvwxyz"
 # define BASE_UPPER "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -81,6 +78,14 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstprint(t_list *list);
 void				ft_lstreverse(t_list **list);
 t_list				*ft_lstreverse_recursive(t_list *list);
+
+/*
+** MATH
+*/
+
+intmax_t			ft_abs(intmax_t number);
+int					ft_max(intmax_t a, intmax_t b);
+int					ft_min(intmax_t a, intmax_t b);
 
 /*
 ** MEMORY
@@ -174,7 +179,7 @@ size_t				ft_strspn(const char *s, const char *charset);
 char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char                *ft_strtok(char *str, const char *sep);
+char				*ft_strtok(char *str, const char *sep);
 char				*ft_strtrim(char const *s);
 
 #endif

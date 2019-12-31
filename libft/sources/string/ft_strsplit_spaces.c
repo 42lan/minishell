@@ -6,10 +6,9 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 06:10:17 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/27 22:31:24 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 03:13:42 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
@@ -28,10 +27,10 @@ static char			*ft_storeword(char const *s)
 	return (word);
 }
 
-int			ft_count_words_spaces(char const *s)
+int					ft_count_words_spaces(char const *s)
 {
-	int		i;
-	int		words;
+	int				i;
+	int				words;
 
 	i = -1;
 	words = 0;
