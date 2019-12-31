@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:46:40 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 08:42:46 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static void			minishell(t_msh *data)
 	int				i;
 
 	i = -1;
-	write_history(data, data->line);
 	data->commands = parse_input(data->line);
 	while (data->commands[++i])
 	{
+		write_history(data, data->commands[i]);
 		if ((data->argv = ft_strsplit_spaces(data->commands[i])))
 		{
 			execute(data, data->commands[i]);
