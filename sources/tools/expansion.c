@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:52:38 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 04:46:37 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void		expand_tilde(char **command)
 	ft_strdel(&tmp);
 }
 
-static int		expand_dollar_helper(char **variables, char **newstr)
+static void		expand_dollar_helper(char **variables, char **newstr)
 {
 	char		*value;
 	char		*tmp_str;
@@ -49,13 +49,9 @@ static int		expand_dollar_helper(char **variables, char **newstr)
 			ft_strdel(&tmp_str);
 		}
 		else
-		{
 			ft_printf("%s: Undefined variable\n", *variables);
-			return (0);
-		}
 		variables++;
 	}
-	return (1);
 }
 
 static void		expand_dollar(char **command)
@@ -65,14 +61,10 @@ static void		expand_dollar(char **command)
 
 	variables = ft_strsplit(*command + ft_strcspn(*command, "$"), '$');
 	newstr = ft_strsub(*command, 0, ft_strcspn(*command, "$"));
-	if ((expand_dollar_helper(variables, &newstr)) == 1)
-	{
-		ft_strdel(command);
-		*command = newstr;
-	}
-	else
-		ft_strdel(&newstr);
+	expand_dollar_helper(variables, &newstr);
 	ft_strarraydel(&variables);
+	ft_strdel(command);
+	*command = newstr;
 }
 
 void			expand_symbols(char **command)
