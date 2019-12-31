@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 16:19:35 by amalsago          #+#    #+#             */
-/*   Updated: 2019/04/29 17:52:33 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 06:13:45 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	i = 0;
 	if (!(*needle))
 		return ((char *)haystack);
-	while (haystack[i] != '\0' && i < len)
+	while (i < len && haystack[i] != '\0')
 	{
 		j = 0;
 		if (haystack[i] == needle[j])
