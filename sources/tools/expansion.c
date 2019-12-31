@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 04:46:37 by amalsago         ###   ########.fr       */
+/*   Updated: 2019/12/31 08:29:12 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ static void		expand_dollar_helper(char **variables, char **newstr)
 			ft_strdel(&tmp_str);
 		}
 		else
+		{
+			**newstr = '\0';
 			ft_printf("%s: Undefined variable\n", *variables);
+		}
 		variables++;
 	}
 }
