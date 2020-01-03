@@ -6,14 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:31:37 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/30 02:53:13 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/03 10:30:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void		execute_builtin(t_msh *data, const char *command,
-			const char *line)
+void	execute_builtin(t_msh *data, const char *command, const char *line)
 {
 	if (ft_strequ(command, "builtins"))
 		builtin_builtins(line + 8);
@@ -28,7 +27,7 @@ void		execute_builtin(t_msh *data, const char *command,
 	else if (ft_strequ(command, "pwd"))
 		builtin_pwd();
 	else if (ft_strequ(command, "setenv"))
-		builtin_setenv(line + 6, data);
+		builtin_setenv(line + 6);
 	else if (ft_strequ(command, "unsetenv"))
 		ft_unsetenv(line + 8);
 }
