@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:36:27 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 06:17:03 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/05 07:05:14 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ static void		free_memory(t_msh *data)
 void			builtin_exit(t_msh *data)
 {
 	int			value;
-	char		*trimmed;
+	char		*args;
 
-	trimmed = ft_strtrim(data->line + ft_strspn(data->line, "exit"));
-	value = ft_atoi(trimmed);
-	ft_strdel(&trimmed);
+	args = data->line + ft_strspn(data->line, "exit \t");
+	value = ft_atoi(ft_strtok(args, " \t"));
 	free_memory(data);
-	exit(value < 0 ? EXIT_SUCCESS : value);
+	exit(value);
 }
