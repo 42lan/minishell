@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/03 10:51:16 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/05 22:35:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@
 **		Upon successful completion, the value 1 is returned otherwise 0.
 */
 
-int					builtin_setenv(const char *line)
+int					builtin_setenv(t_msh *data, const char *line)
 {
 	int				ret;
 	char			*name;
 	char			*value;
 	char			*variable;
+	extern char		**environ;
 
 	ret = 1;
 	variable = ft_strtrim(line);
@@ -39,6 +40,7 @@ int					builtin_setenv(const char *line)
 				? ft_strctrim(variable + ft_strlen(name) + 1, '"')
 				: ft_strctrim(ft_strtok(NULL, " \t"), ' ');
 		ret = ft_setenv(name, value, OVERWRITE);
+		data->environ = environ;
 		ft_strdel(&value);
 	}
 	ft_strdel(&variable);
