@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 14:42:32 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/29 05:00:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/06 06:30:33 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 **	This function do not return a value.
 */
 
-void				display_prompt(void)
+void			display_prompt(void)
 {
-	static char		*user;
+	const char	*user = NULL;
 
-	if (!user)
+	if (user == NULL)
 		user = ft_getenv("USER");
 	if (user)
 		ft_printf("%s$> ", user);
