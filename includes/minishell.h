@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/05 22:35:00 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/06 09:53:52 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int				builtin_env(void);
 void			builtin_exit(t_msh *data);
 int				builtin_pwd(void);
 int				builtin_setenv(t_msh *data, const char *line);
+void			builtin_unsetenv(const char *line);
 void			ft_clear(void);
 int				ft_clearenv(void);
 int				ft_setenv(const char *name, const char *value, int overwrite);
