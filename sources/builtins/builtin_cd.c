@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:39:36 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/03 04:36:48 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ static char		*determine_path(const char *line, const char *cwd)
 			ft_perror("minishell: cd: HOME not set");
 	}
 	else if (ft_strnequ(path_from_line, "-", 1))
-		path = ft_strdup(ft_getenv("OLDPWD"));
+	{
+		if ((path = ft_getenv("OLDPWD")))
+			path = ft_strdup(path);
+	}
 	else if (ft_strnequ(path_from_line, "./", 2))
 		path = form_path(cwd, path_from_line + 2);
 	else

@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2019/12/31 03:35:35 by amalsago         ###   ########.fr        #
+#    Updated: 2020/01/06 09:44:20 by amalsago         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ LIBNAME		= libft.a
 # GNU Compiler Collection
 
 GCC			= /usr/bin/clang
-WOPT		= -Wall -Wextra -Werror -g -g3
-OOPT		= #-O2
+WOPT		= -Wall -Wextra -Werror
+OOPT		= -O2
 IOPT		= -I $(INCDIR)
 
 # **************************************************************************** #
@@ -53,6 +53,7 @@ SRCNAME		= main.c	\
 			  builtins/builtin_exit.c		\
 			  builtins/builtin_pwd.c		\
 			  builtins/builtin_setenv.c		\
+			  builtins/builtin_unsetenv.c	\
 			  builtins/ft_setenv.c			\
 			  builtins/ft_unsetenv.c		\
 			  execution/execute.c			\

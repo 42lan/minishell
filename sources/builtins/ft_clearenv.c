@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_exit.c                                     :+:      :+:    :+:   */
+/*   ft_clearenv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 13:36:27 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/05 07:05:14 by amalsago         ###   ########.fr       */
+/*   Created: 2020/01/03 07:07:25 by amalsago          #+#    #+#             */
+/*   Updated: 2020/01/03 08:02:38 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void		free_memory(t_msh *data)
-{
-	ft_strdel(&(data->line));
-	ft_strdel(&(data->history_file));
-	ft_strarraydel(&(data->argv));
-	ft_strarraydel(&(data->environ));
-	ft_strarraydel(&(data->commands));
-	data = NULL;
-}
+/*
+** DESCRIPTION
+**	ft_clearenv() clears all environment variables by freeing allocated memory.
+**
+** RETURN VALUES
+**	Upon successful completion, the value 1 is returned, otherwise 0.
+**
+**	Standards: POSIX.1a
+*/
 
-void			builtin_exit(t_msh *data)
+int					ft_clearenv(void)
 {
-	int			value;
-	char		*args;
+	int				i;
+	extern char		**environ;
 
-	args = data->line + ft_strspn(data->line, "exit \t");
-	value = ft_atoi(ft_strtok(args, " \t"));
-	free_memory(data);
-	exit(value);
+	i = -1;
+	if (environ != NULL)
+	{
+		while (environ[++i])
+			ft_strdel(&environ[i]);
+		ft_strdel(environ);
+		return (1);
+	}
+	return (0);
 }

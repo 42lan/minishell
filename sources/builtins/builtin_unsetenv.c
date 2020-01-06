@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_prompt.c                                   :+:      :+:    :+:   */
+/*   builtin_unsetenv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 14:42:32 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/06 06:30:33 by amalsago         ###   ########.fr       */
+/*   Created: 2020/01/06 09:42:18 by amalsago          #+#    #+#             */
+/*   Updated: 2020/01/06 09:42:31 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "ft_printf.h"
 
-/*
-** DESCRIPTION
-**	display_prompt() display a personalized prompt if USER variable is setted,
-**	otherwise a simple prompt.
-**
-** RETURN VALUES
-**	This function do not return a value.
-*/
-
-void			display_prompt(void)
+void		builtin_unsetenv(const char *line)
 {
-	const char	*user = NULL;
+	int		i;
+	char	**variables;
 
-	if (user == NULL)
-		user = ft_getenv("USER");
-	if (user)
-		ft_printf("%s$> ", user);
-	else
-		ft_printf("$> ");
+	i = -1;
+	variables = ft_strsplit_spaces(line);
+	while (variables[++i])
+		ft_unsetenv(variables[i]);
+	ft_strarraydel(&variables);
 }
