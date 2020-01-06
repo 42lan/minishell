@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/03 04:36:48 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/06 16:53:55 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char		*determine_path(const char *line, const char *cwd)
 	char		*path_from_line;
 
 	path = NULL;
-	path_from_line = ft_strdup(line + ft_strspn(line, "cd "));
+	path_from_line = ft_strdup(line + 3);
 	if (ft_strequ(path_from_line, "\0"))
 	{
 		if ((home = ft_getenv("HOME")))
@@ -65,14 +65,9 @@ int				builtin_cd(const char *line)
 	char		*path;
 
 	cwd = getcwd(NULL, 0);
-	if (!(path = determine_path(line, cwd))
-		|| check_access(path) != 0 || chdir(path) < 0)
-	{
-		ft_strdel(&path);
-		ft_strdel(&cwd);
-		return (0);
-	}
-	update_wd(cwd);
+	if ((path = determine_path(line, cwd)) && check_access(path) == 0
+			&& chdir(path) >= 0)
+		update_wd(cwd);
 	ft_strdel(&cwd);
 	ft_strdel(&path);
 	return (1);
