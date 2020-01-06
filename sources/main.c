@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/06 12:06:59 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/06 14:06:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int					main(void)
 			ft_strdel(&(data.line));
 		}
 		else
+		{
+			ft_putchar('\n');
 			builtin_exit(&data);
+		}
 	}
 	return (0);
 }
