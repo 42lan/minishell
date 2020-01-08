@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/06 14:26:41 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/08 07:09:32 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 # define MINISHELL_H
 
 # include "colors.h"
+# include "defines.h"
 # include "system_libraries.h"
 # include "../libft/includes/libft.h"
 # include "../libft/includes/ft_printf.h"
 # include "../libft/includes/get_next_line.h"
-
-# define CONSERVE 0
-# define OVERWRITE 1
 
 static char		*g_builtins[] = {
 	"builtins",
