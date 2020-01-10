@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 15:44:59 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/03 10:22:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/08 09:15:36 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,10 @@ static int				is_exceptions(const char *name)
 
 	i = -1;
 	if (!ft_isalpha(name[0]))
-	{
-		ft_perror("setenv: Variable name must begin with a letter.");
-		return (1);
-	}
+		return (ft_perror(E_BEGIN));
 	while (name[++i])
 		if (!ft_isalnum(name[i]) && !ft_isseparator(name[i], '_'))
-		{
-			ft_perror("setenv: Variable name must contain alphanumeric chars.");
-			return (1);
-		}
+			return (ft_perror(E_ALNUM));
 	return (0);
 }
 

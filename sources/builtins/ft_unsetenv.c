@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 12:07:18 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/01 08:12:01 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/08 10:24:52 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,8 @@ int					ft_unsetenv(const char *name)
 	extern char		**environ;
 
 	i = -1;
-	if (!name || !*name)
-	{
-		ft_perror("unsetenv: Too few arguments.");
-		return (-1);
-	}
+	if (!name)
+		return (ft_perror(E_FEWARGS));
 	while (environ[++i])
 	{
 		len = ft_strlen(name);
