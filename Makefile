@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile                               __\/\\\_____\/\\\__                #
 #                                                     +:+ +:+         +:+      #
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2020/01/10 05:52:55 by abaisago         ###   ########.fr        #
+#    Updated: 2020/01/10 06:28:05 by hachiman    __\///\\\\\\\\\/___           #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
 	@printf $(CR)"[ ./$(BASENAME)/%s ]"$(CLEAR) $@
 
-$(LFT):
+$(LFT): FORCE
 	@$(MAKE) $(LIBDIR)
 
 clean:
@@ -130,3 +130,5 @@ norm:
 	@$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources | /usr/bin/less
 
 .PHONY: all clean fclean re norm
+
+FORCE:
