@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2020/01/06 11:03:56 by amalsago         ###   ########.fr        #
+#    Updated: 2020/01/10 19:12:02 by aslan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,6 @@ SRCNAME		= main.c	\
 SRC			= $(addprefix $(SRCDIR)/, $(SRCNAME))
 OBJ			= $(addprefix $(OBJDIR)/, $(SRCNAME:.c=.o))
 LFT			= $(addprefix $(LIBDIR)/, $(LIBNAME))
-LFTOBJ		= $(LIBDIR)/objects/*/*.o
 
 # **************************************************************************** #
 # Extra
@@ -107,7 +106,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@$(GCC) $(WOPT) $(OOPT) $(IOPT) -c $< -o $@
 	@printf $(CR)"[ ./$(BASENAME)/%s ]"$(CLEAR) $@
 
-$(LFT):
+$(LFT): FORCE
 	@$(MAKE) $(LIBDIR)
 
 clean:
@@ -131,3 +130,5 @@ norm:
 	@$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources | /usr/bin/less
 
 .PHONY: all clean fclean re norm
+
+FORCE:
