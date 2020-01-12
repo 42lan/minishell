@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/12 03:00:06 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 03:11:04 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int					builtin_cd(t_msh *data, const char *line)
 {
 	char			*cwd;
 	char			*path;
-	extern char 	**environ;
+	extern char		**environ;
 
 	cwd = getcwd(NULL, 0);
 	if ((path = determine_path(line, cwd)) && check_access(path) == 0

@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/11 11:20:28 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 03:10:46 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void			sigint_handler(void)
 	signal(SIGINT, nl_prompt);
 }
 
-static void				initialize_msh(t_msh *data)
+static void			initialize_msh(t_msh *data)
 {
 	data->line = NULL;
 	data->history_file = NULL;
