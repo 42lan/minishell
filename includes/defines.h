@@ -6,7 +6,7 @@
 /*   By: aslan <aslan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 07:07:05 by aslan             #+#    #+#             */
-/*   Updated: 2020/01/12 03:19:52 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 05:44:20 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@
 # define E_BEGIN "setenv: Variable name must begin with a letter."
 # define E_ALNUM "setenv: Variable name must contain alphanumeric characters."
 # define E_GETCWD "pwd: error retrieving current directory"
+# define E_NUMARGREQ "minishell: exit: numeric argument required"
 
 #endif
