@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:28:51 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:40:26 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/12 06:18:20 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 **	Upon successful completion, the value 1 is returned otherwise the value 0.
 */
 
-int			execute(t_msh *data, const char *line)
+extern int		g_exit_status;
+
+int				execute(t_msh *data, const char *line)
 {
-	char	*realpath;
-	pid_t	pid;
+	int			status;
+	char		*realpath;
+	pid_t		pid;
 
 	if (!line || !*line)
 		return (0);
@@ -37,7 +40,8 @@ int			execute(t_msh *data, const char *line)
 				return (0);
 			else if (pid == 0)
 				execute_command(realpath, data->argv);
-			waitpid(pid, NULL, 0);
+			waitpid(pid, &status, 0);
+			g_exit_status = (status > 255) ? 1 : status;
 			ft_strdel(&realpath);
 		}
 	}
