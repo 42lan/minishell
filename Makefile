@@ -6,7 +6,7 @@
 #    By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/05 11:39:15 by amalsago          #+#    #+#              #
-#    Updated: 2020/01/12 03:50:57 by aslan            ###   ########.fr        #
+#    Updated: 2020/01/12 03:57:29 by aslan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ IOPT		= -I $(INCDIR)
 # System commands
 
 AR			= /usr/bin/ar -rc
+LESS		= /usr/bin/less
 MAKE		= /usr/bin/make -C
 RANLIB		= /usr/bin/ranlib
 NORMINETTE	= /usr/bin/norminette
@@ -112,7 +113,7 @@ $(LFT): FORCE
 clean:
 	@if [ -d $(OBJDIR) ]; then \
 		$(RM) $(OBJ) $(OBJDIR) \
-		&& printf $(CR)$(RED)"✗ The objects files of ft_ls are cleaned\n"$(EOC) \
+		&& printf $(CR)$(RED)"✗ The objects files of $(NAME) are cleaned\n"$(EOC)\
 		&& $(MAKE) $(LIBDIR) clean; \
 	fi
 
@@ -127,7 +128,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	@$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources | /usr/bin/less
+	@$(NORMINETTE) $(SRCDIR) $(INCDIR) $(LIBDIR)/sources | $(LESS)
 
 .PHONY: all clean fclean re norm
 
