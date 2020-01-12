@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/08 09:02:43 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 03:00:06 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 **	Upon successful completion, the value 1 is returned otherwise the value 0.
 */
 
-static char		*determine_path(const char *line, const char *cwd)
+static char			*determine_path(const char *line, const char *cwd)
 {
-	char		*home;
-	char		*path;
-	char		*path_from_line;
+	char			*home;
+	char			*path;
+	char			*path_from_line;
 
 	path = NULL;
 	path_from_line = ft_strdup(line + 3);
@@ -49,9 +49,9 @@ static char		*determine_path(const char *line, const char *cwd)
 	return (path);
 }
 
-static void		update_wd(const char *cwd)
+static void			update_wd(const char *cwd)
 {
-	char		*newcwd;
+	char			*newcwd;
 
 	newcwd = getcwd(NULL, 0);
 	ft_setenv("OLDPWD", (cwd) ? cwd : ft_getenv("PWD"), OVERWRITE);
@@ -59,15 +59,17 @@ static void		update_wd(const char *cwd)
 	ft_strdel(&newcwd);
 }
 
-int				builtin_cd(const char *line)
+int					builtin_cd(t_msh *data, const char *line)
 {
-	char		*cwd;
-	char		*path;
+	char			*cwd;
+	char			*path;
+	extern char 	**environ;
 
 	cwd = getcwd(NULL, 0);
 	if ((path = determine_path(line, cwd)) && check_access(path) == 0
 			&& chdir(path) >= 0)
 		update_wd(cwd);
+	data->environ = environ;
 	ft_strdel(&cwd);
 	ft_strdel(&path);
 	return (1);

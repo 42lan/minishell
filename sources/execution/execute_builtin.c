@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:31:37 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/06 14:09:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/12 01:35:45 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	execute_builtin(t_msh *data, const char *command, const char *line)
 	if (ft_strequ(command, "builtins"))
 		builtin_builtins(line + 8);
 	else if (ft_strequ(command, "cd"))
-		builtin_cd(line);
+		builtin_cd(data, line);
 	else if (ft_strequ(command, "echo"))
 		builtin_echo(line);
 	else if (ft_strequ(command, "env"))

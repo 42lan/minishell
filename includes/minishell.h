@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:44:42 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/08 07:09:32 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 01:34:47 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char			**setup_environ(t_msh *data);
 int				total_environ_rows(void);
 void			write_history(t_msh *data, const char *line);
 int				builtin_builtins(const char *args);
-int				builtin_cd(const char *line);
+int				builtin_cd(t_msh *data, const char *line);
 int				builtin_echo(const char *line);
 int				builtin_env(void);
 void			builtin_exit(t_msh *data);
