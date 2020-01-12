@@ -6,11 +6,13 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:36:27 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/06 12:07:58 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/12 06:18:26 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+extern int		g_exit_status;
 
 static void		free_memory(t_msh *data)
 {
@@ -24,15 +26,26 @@ static void		free_memory(t_msh *data)
 
 void			builtin_exit(t_msh *data)
 {
-	int			value;
+	int			i;
 	char		*args;
 
-	value = 0;
+	i = -1;
 	if (data->line)
 	{
 		args = data->line + ft_strspn(data->line, "exit \t");
-		value = ft_atoi(ft_strtok(args, " \t"));
+		if (*args)
+		{
+			while (args[++i])
+				if (!ft_isdigit(args[i]))
+				{
+					ft_perror(E_NUMARGREQ);
+					g_exit_status = 255;
+					break ;
+				}
+			if (g_exit_status != 255)
+				g_exit_status = ft_atoi(ft_strtok(args, " \t"));
+		}
 	}
 	free_memory(data);
-	exit(value);
+	exit(g_exit_status);
 }
