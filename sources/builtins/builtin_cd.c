@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 19:08:58 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/12 03:11:04 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 05:55:22 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 ** RETURN VALUES
 **	Upon successful completion, the value 1 is returned otherwise the value 0.
 */
+
+extern int			g_exit_status;
 
 static char			*determine_path(const char *line, const char *cwd)
 {
@@ -69,6 +71,8 @@ int					builtin_cd(t_msh *data, const char *line)
 	if ((path = determine_path(line, cwd)) && check_access(path) == 0
 			&& chdir(path) >= 0)
 		update_wd(cwd);
+	else
+		g_exit_status = 1;
 	data->environ = environ;
 	ft_strdel(&cwd);
 	ft_strdel(&path);

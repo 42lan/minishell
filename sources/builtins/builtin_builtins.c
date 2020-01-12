@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 14:40:55 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/08 09:01:44 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 06:03:22 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 ** RETURN VALUES
 **	Upon successful completion, the value 0 is returned otherwise the value 1.
 */
+
+extern int			g_exit_status;
 
 static size_t		get_max_len(void)
 {
@@ -70,7 +72,7 @@ int					builtin_builtins(const char *args)
 	max_name_len = get_max_len();
 	per_row = get_per_row(max_name_len + 5);
 	if (check_many_arguments(args))
-		return (ft_perror(E_MANYARGS));
+		return (g_exit_status = ft_perror(E_MANYARGS));
 	while (g_builtins[++i])
 	{
 		if (i == per_row)

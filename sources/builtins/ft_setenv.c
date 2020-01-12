@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 15:44:59 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/08 09:15:36 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/12 06:03:00 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,18 @@
 **		Upon successful completion, the value 1 is returned otherwise 0.
 */
 
+extern int				g_exit_status;
+
 static int				is_exceptions(const char *name)
 {
 	int					i;
 
 	i = -1;
 	if (!ft_isalpha(name[0]))
-		return (ft_perror(E_BEGIN));
+		return (g_exit_status = ft_perror(E_BEGIN));
 	while (name[++i])
 		if (!ft_isalnum(name[i]) && !ft_isseparator(name[i], '_'))
-			return (ft_perror(E_ALNUM));
+			return (g_exit_status = ft_perror(E_ALNUM));
 	return (0);
 }
 
