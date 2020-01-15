@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/12 04:31:58 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/16 00:17:39 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int					g_exit_status = 0;
 static void			nl_prompt(int signum)
 {
 	(void)signum;
-	ft_putchar('\n');
+	ft_putstr("\b\b  \n");
 	display_prompt();
 }
 
