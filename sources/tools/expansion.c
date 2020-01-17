@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/17 03:49:10 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/17 04:56:26 by amalsago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,10 @@ static void		expand_dollar(char **command)
 
 void			expand_symbols(char **command)
 {
-	(void)expand_dollar;
-	(void)expand_tilde;
 	int			i;
 
 	i = -1;
-	while((*command)[++i])
+	while ((*command)[++i])
 	{
 		if ((*command)[i] == '~')
 			expand_tilde(command);
