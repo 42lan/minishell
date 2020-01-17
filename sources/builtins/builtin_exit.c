@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:36:27 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/12 06:18:26 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/17 07:09:13 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	builtin_exit() function terminates a process after performing memory clean.
+**	It also returns a global_exit_status value or can be precised as argument.
+*/
 
 extern int		g_exit_status;
 

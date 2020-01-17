@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 13:29:03 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:49:39 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 06:57:51 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 /*
 ** DESCRIPTION
-**	get_input()
+**	get_input() gets user input from keyboard and trim it from extra spaces
+**	before return it to be processed.
 **
 ** RETURN VALUES
 **	Upon successful completion, users entry is returned otherwise NULL.

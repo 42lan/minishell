@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:45:46 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/16 16:02:35 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/17 06:49:40 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,18 @@
 
 /*
 ** DESCRIPTION
-**	main()
+**	main() run infinite loop displaying prompt, getting input from user and
+**	calling minishell() to execute received commands.
+**
+**	minishell() prepares execution of users input through parse_input().
+**
+**	nl_prompt() is called when SIGINT signal is received. The sequence of
+**	characters "\b\b  \n" printed on STDOUT allows to remove  sign.
+**
+**	initialize_msh() initialize variables of t_msh stucture.
+**
+**	sigint_handler() handle SIGINT signal by calling signal().
+**
 **
 ** RETURN VALUES
 **	Upon successful completion, the value 0 is returned.

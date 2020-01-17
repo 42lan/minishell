@@ -6,11 +6,20 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:36:39 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:52:17 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 06:54:50 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	As original `environ` is stored on STACK, setup_environ() clone it if it
+**	exist by calling duplicate_environ() or create minimal one on HEAP.
+**
+** RETURN VALUES
+**	Upon successful completion, the pointer to new created envrion is returned.
+*/
 
 static char			**duplicate_environ(void)
 {

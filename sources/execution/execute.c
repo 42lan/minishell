@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 12:28:51 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/12 06:18:20 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/17 07:02:41 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 /*
 ** DESCRIPTION
-**	execute()
+**	Before execute received line execute() checks if it is a builtin or no.
+**	In case of builtin, the parent process takes care to execute received line.
+**	Otherwise this task is assigned to new created child process.
 **
 ** RETURN VALUES
 **	Upon successful completion, the value 1 is returned otherwise the value 0.

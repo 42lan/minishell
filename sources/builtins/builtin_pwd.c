@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 11:39:59 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/12 06:04:17 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/17 07:10:22 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	builtin_pwd() prints the name of current working directory.
+*/
 
 extern int		g_exit_status;
 

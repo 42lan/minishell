@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:50:41 by amalsago          #+#    #+#             */
-/*   Updated: 2019/11/08 21:02:15 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 07:06:22 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 /*
 ** DESCRIPTION
-**	builtin_echo()
+**	builtin_echo() prints a line of text.
 **
 ** RETURN VALUES
-**	Upon successful completion, the value 1 is returned otherwise the value 0.
+**	Upon successful completion, the value 1 is returned.
 */
 
 int			builtin_echo(const char *line)

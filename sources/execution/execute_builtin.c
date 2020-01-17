@@ -6,11 +6,17 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:31:37 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/12 01:35:45 by aslan            ###   ########.fr       */
+/*   Updated: 2020/01/17 07:05:04 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	execute_builtin() choose proper builtin function to call in order to execute
+**	received user's command.
+*/
 
 void	execute_builtin(t_msh *data, const char *command, const char *line)
 {

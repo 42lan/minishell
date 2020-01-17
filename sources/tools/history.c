@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 16:06:56 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/01 06:19:11 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 06:59:21 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION:
+**	write_history() writes user's input in a file setted by set_history_file().
+*/
 
 static void		set_history_file(t_msh *data)
 {

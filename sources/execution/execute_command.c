@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:33:04 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 03:48:30 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 08:10:59 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	execute_command() executes non-builtin commands.
+*/
 
 int					execute_command(const char *realpath, char **command)
 {

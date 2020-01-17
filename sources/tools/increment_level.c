@@ -6,11 +6,16 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 15:45:10 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/26 04:52:57 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 06:55:56 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+** DESCRIPTION
+**	increment_level() increments shell level if it exist, otherwise set it to 1.
+*/
 
 void		increment_level(void)
 {
