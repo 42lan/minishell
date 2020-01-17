@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:24:53 by amalsago          #+#    #+#             */
-/*   Updated: 2019/12/31 08:29:12 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 03:49:10 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,55 +31,60 @@ static void		expand_tilde(char **command)
 	ft_strdel(&tmp);
 }
 
-static void		expand_dollar_helper(char **variables, char **newstr)
+static void		expand_dollar_helper(char **command, char **new_command, int i)
 {
+	char		*tmp;
 	char		*value;
-	char		*tmp_str;
-	char		*tmp_var;
+	char		*variable;
 
-	while (*variables)
+	variable = ft_strsub(*command, 0, i);
+	value = ft_getenv(variable);
+	if (value)
 	{
-		tmp_var = *variables;
-		*variables = ft_strtrim(*variables);
-		ft_strdel(&tmp_var);
-		if ((value = ft_getenv(*variables)))
-		{
-			tmp_str = *newstr;
-			*newstr = ft_strjoin_sep(*newstr, value, " ");
-			ft_strdel(&tmp_str);
-		}
-		else
-		{
-			**newstr = '\0';
-			ft_printf("%s: Undefined variable\n", *variables);
-		}
-		variables++;
+		tmp = *new_command;
+		*new_command = ft_strjoin(*new_command, value);
+		ft_strdel(&tmp);
+		tmp = *new_command;
+		*new_command = ft_strjoin(*new_command, *command + i);
+		ft_strdel(&tmp);
 	}
+	else
+	{
+		**new_command = '\0';
+		ft_printf("%s: Undefined variable\n", variable);
+	}
+	ft_strdel(&variable);
 }
 
 static void		expand_dollar(char **command)
 {
-	char		*newstr;
-	char		**variables;
+	int			i;
+	char		*tmp;
+	char		*new_command;
 
-	variables = ft_strsplit(*command + ft_strcspn(*command, "$"), '$');
-	newstr = ft_strsub(*command, 0, ft_strcspn(*command, "$"));
-	expand_dollar_helper(variables, &newstr);
-	ft_strarraydel(&variables);
-	ft_strdel(command);
-	*command = newstr;
+	i = 0;
+	tmp = *command;
+	new_command = ft_strsub(*command, 0, ft_strclen(*command, '$'));
+	*command += ft_strclen(*command, '$') + 1;
+	while ((*command)[i] && (ft_isalpha((*command)[i]) || (*command)[i] == '_'))
+		i++;
+	expand_dollar_helper(command, &new_command, i);
+	*command = new_command;
+	ft_strdel(&tmp);
 }
 
 void			expand_symbols(char **command)
 {
+	(void)expand_dollar;
+	(void)expand_tilde;
 	int			i;
 
 	i = -1;
-	while ((*command)[++i])
+	while((*command)[++i])
 	{
-		if ((*command)[i] == '~' && (*command)[i - 1] != '"')
+		if ((*command)[i] == '~')
 			expand_tilde(command);
-		else if ((*command)[i] == '$' && (*command)[i + 1])
+		if ((*command)[i] == '$' && (*command)[i + 1])
 			expand_dollar(command);
 	}
 }
