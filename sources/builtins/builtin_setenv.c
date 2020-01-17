@@ -6,7 +6,7 @@
 /*   By: amalsago <amalsago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 18:32:36 by amalsago          #+#    #+#             */
-/*   Updated: 2020/01/05 22:35:31 by amalsago         ###   ########.fr       */
+/*   Updated: 2020/01/17 06:10:45 by aslan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 /*
 ** DESCRIPTION
-**	builtin_setenv()
+**	builtin_setenv() prepares variables `name` and `value` retrieved from line
+**	before calling ft_setenv().
+**	If builtin `setenv` is called without arguments environ will be printed.
+**	When PATH variable should be setted, if its value is NULL, set current
+**	working directory as it value.
 **
 ** RETURN VALUES
 **	builtin_setenv()
@@ -39,6 +43,8 @@ int					builtin_setenv(t_msh *data, const char *line)
 		value = (variable[ft_strlen(name) + 1] == '"')
 				? ft_strctrim(variable + ft_strlen(name) + 1, '"')
 				: ft_strctrim(ft_strtok(NULL, " \t"), ' ');
+		if (ft_strequ(name, "PATH") && value == NULL)
+			value = ft_strdup(".");
 		ret = ft_setenv(name, value, OVERWRITE);
 		data->environ = environ;
 		ft_strdel(&value);
