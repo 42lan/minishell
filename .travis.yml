@@ -6,4 +6,7 @@ compiler:
     - clang
     - gcc
 
-install: make ar ranlib
+install:
+    - make
+    - ar
+    - ranlib
