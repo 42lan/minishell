@@ -1,0 +1,9 @@
+os: osx
+
+language: c
+
+compiler:
+    - clang
+    - gcc
+
+install: make ar ranlib
